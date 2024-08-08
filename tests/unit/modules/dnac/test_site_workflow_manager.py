@@ -58,9 +58,8 @@ class TestDnacSiteWorkflow(TestDnacModule):
                 self.test_data.get("create_site_area_response"),
                 self.test_data.get("currentExecution"),
                 self.test_data.get("get_site_area"),
-                self.test_data.get("get_site_building"),          
-                self.test_data.get("get_site_floor")  
-                
+                self.test_data.get("get_site_building"),
+                self.test_data.get("get_site_floor")
             ]
         if "update_site" in self._testMethodName:
             self.run_dnac_exec.side_effect = [
@@ -71,8 +70,7 @@ class TestDnacSiteWorkflow(TestDnacModule):
                 self.test_data.get("get_site_floor"),
                 self.test_data.get("update_site_floor_response"),
                 self.test_data.get("floor_updation_execution"),
-                self.test_data.get("get_site_updated_floor"),
-               
+                self.test_data.get("get_site_updated_floor")
             ]
         if "delete_existing_site" in self._testMethodName:
             self.run_dnac_exec.side_effect = [
@@ -95,7 +93,7 @@ class TestDnacSiteWorkflow(TestDnacModule):
                 self.test_data.get("get_site_floor"),
                 self.test_data.get("get_site_floor"),
             ]
-    
+
     def test_Site_workflow_manager_create_site(self):
         """
         Test case for site workflow manager when creating a site.
@@ -113,20 +111,19 @@ class TestDnacSiteWorkflow(TestDnacModule):
             )
         )
         result = self.execute_module(changed=True, failed=False)
-        actual_msg=result.get('msg')
-        print(actual_msg)
         self.assertEqual(
             result.get('msg'),
-            "Site(s) '['Global/Mysore']' created successfully and some site(s) '['Global/Mysore/Mod-x',"+
+            "Site(s) '['Global/Mysore']' created successfully and some site(s) '['Global/Mysore/Mod-x'," +
             " 'Global/Mysore/Mod-x/Mezzanine']' not needs any update in Cisco Catalyst\n"
             "                                Center."
         )
+
     def test_Site_workflow_manager_update_site(self):
         """
         Test case for site workflow manager when an update is needed.
 
         This test case checks the behavior of the site workflow manager when an
-        
+
         update is required for the specified site in the DNAC.
         """
         set_module_args(
@@ -144,7 +141,7 @@ class TestDnacSiteWorkflow(TestDnacModule):
         self.assertEqual(
             result.get("msg"),
             "Site(s) '['Global/Mysore/Mod-x', 'Global/Mysore/Mod-x/Mezzanine']' updated successfully and some site(s)"
-            " '['Global/Mysore']' not needs any update in Cisco Catalyst\n"+
+            " '['Global/Mysore']' not needs any update in Cisco Catalyst\n" +
             "                                Center."
         )
 
@@ -191,11 +188,11 @@ class TestDnacSiteWorkflow(TestDnacModule):
             )
         )
         result = self.execute_module(changed=True, failed=False)
-        
+
         self.assertEqual(
             result.get('msg'),
-            "Given site(s) '['Mezzanine', 'Mod-x', 'Global/Mysore']' deleted successfully from Cisco Catalyst Center"+
-             " and unable to deleted some site(s) '['Global/Mysore/Mod-x', 'Global/Mysore/Mod-x/Mezzanine']' as they\n"+
+            "Given site(s) '['Mezzanine', 'Mod-x', 'Global/Mysore']' deleted successfully from Cisco Catalyst Center" +
+            " and unable to deleted some site(s) '['Global/Mysore/Mod-x', 'Global/Mysore/Mod-x/Mezzanine']' as they\n" +
             "                    are not found in Cisco Catalyst Center."
         )
 
@@ -219,6 +216,6 @@ class TestDnacSiteWorkflow(TestDnacModule):
         result = self.execute_module(changed=False, failed=False)
         self.assertEqual(
             result.get('msg'),
-            "Site(s) '['Global/Mysore', 'Global/Mysore/Mod-x', 'Global/Mysore/Mod-x/Mezzanine']'"+
+            "Site(s) '['Global/Mysore', 'Global/Mysore/Mod-x', 'Global/Mysore/Mod-x/Mezzanine']'" +
             " not needs any update in Cisco Catalyst Center."
         )
