@@ -1,0 +1,44 @@
+12-02-2024 17:01:43 DEBUG  AssuranceSettings: __init__: 110: Logging configured and initiated 
+
+12-02-2024 17:01:43 DEBUG  AssuranceSettings: __init__: 116: Cisco Catalyst Center parameters: {'dnac_host': '10.22.40.225', 'dnac_port': '443', 'dnac_username': 'admin', 'dnac_password': 'Maglev123', 'dnac_version': '2.3.7.6', 'dnac_verify': False, 'dnac_debug': True, 'dnac_log': True, 'dnac_log_level': 'DEBUG', 'dnac_log_file_path': 'dnac.log', 'dnac_log_append': True} 
+
+12-02-2024 17:01:43 INFO  AssuranceSettings: validate_input: 763: Successfully validated playbook configuration parameters using 'validate_input': [{'assurance_user_defined_issue_settings': [{'name': 'Testing1233', 'description': 'MACFLAP NOTIF', 'rules': [{'severity': 4, 'facility': 'SW_MATM6', 'mnemonic': 'MACFLAP_NOTIFic6', 'pattern': 'Host * be in vlan * is flapping between port6 * and port num *', 'occurrences': 6, 'duration_in_minutes': 6}], 'is_enabled': False, 'priority': 'P2', 'is_notification_enabled': True}], 'assurance_healthscore': None}] 
+
+12-02-2024 17:01:43 DEBUG  AssuranceSettings: check_return_status: 302: Line No: 1382 status: success, msg: Successfully validated playbook configuration parameters using 'validate_input': [{'assurance_user_defined_issue_settings': [{'name': 'Testing1233', 'description': 'MACFLAP NOTIF', 'rules': [{'severity': 4, 'facility': 'SW_MATM6', 'mnemonic': 'MACFLAP_NOTIFic6', 'pattern': 'Host * be in vlan * is flapping between port6 * and port num *', 'occurrences': 6, 'duration_in_minutes': 6}], 'is_enabled': False, 'priority': 'P2', 'is_notification_enabled': True}], 'assurance_healthscore': None}] 
+
+12-02-2024 17:01:43 WARNING  AssuranceSettings: get_want: 827: {'assurance_user_defined_issue_settings': [{'name': 'Testing1233', 'description': 'MACFLAP NOTIF', 'rules': [{'severity': 4, 'facility': 'SW_MATM6', 'mnemonic': 'MACFLAP_NOTIFic6', 'pattern': 'Host * be in vlan * is flapping between port6 * and port num *', 'occurrences': 6, 'duration_in_minutes': 6}], 'is_enabled': False, 'priority': 'P2', 'is_notification_enabled': True}], 'assurance_healthscore': None} 
+
+12-02-2024 17:01:43 INFO  AssuranceSettings: get_want: 834: Desired State (want): {'assurance_user_defined_issue_settings': [{'name': 'Testing1233', 'description': 'MACFLAP NOTIF', 'rules': [{'severity': 4, 'facility': 'SW_MATM6', 'mnemonic': 'MACFLAP_NOTIFic6', 'pattern': 'Host * be in vlan * is flapping between port6 * and port num *', 'occurrences': 6, 'duration_in_minutes': 6}], 'is_enabled': False, 'priority': 'P2', 'is_notification_enabled': True}], 'assurance_system_issue_settings': None, 'assurance_healthscore': None} 
+
+12-02-2024 17:01:43 DEBUG  AssuranceSettings: check_return_status: 302: Line No: 1389 status: success, msg: Successfully validated playbook configuration parameters using 'validate_input': [{'assurance_user_defined_issue_settings': [{'name': 'Testing1233', 'description': 'MACFLAP NOTIF', 'rules': [{'severity': 4, 'facility': 'SW_MATM6', 'mnemonic': 'MACFLAP_NOTIFic6', 'pattern': 'Host * be in vlan * is flapping between port6 * and port num *', 'occurrences': 6, 'duration_in_minutes': 6}], 'is_enabled': False, 'priority': 'P2', 'is_notification_enabled': True}], 'assurance_healthscore': None}] 
+
+12-02-2024 17:01:43 WARNING  AssuranceSettings: assurance_issues_exists: 896: Testing1233 
+
+12-02-2024 17:01:44 WARNING  AssuranceSettings: get_have_assurance_user_issue: 988: {'response': [], 'message': 'There is no assurance issue present in the system for the given input.'} 
+
+12-02-2024 17:01:44 DEBUG  AssuranceSettings: get_have_assurance_user_issue: 991: Assurance issue details of 'Testing1233': {'response': [], 'message': 'There is no assurance issue present in the system for the given input.'} 
+
+12-02-2024 17:01:44 WARNING  AssuranceSettings: get_have_assurance_user_issue: 994: None 
+
+12-02-2024 17:01:44 DEBUG  AssuranceSettings: get_have_assurance_user_issue: 1008: Assurance issue details: [{'response': [], 'message': 'There is no assurance issue present in the system for the given input.'}] 
+
+12-02-2024 17:01:44 DEBUG  AssuranceSettings: check_return_status: 302: Line No: 856 status: success, msg: Collecting the assurance issue details from the Cisco Catalyst Center 
+
+12-02-2024 17:01:44 INFO  AssuranceSettings: get_have: 864: Current State (have): {'assurance_user_defined_issue_settings': [{'response': [], 'message': 'There is no assurance issue present in the system for the given input.'}]} 
+
+12-02-2024 17:01:44 DEBUG  AssuranceSettings: check_return_status: 302: Line No: 1390 status: success, msg: Successfully retrieved the details from the system 
+
+12-02-2024 17:01:44 WARNING  AssuranceSettings: create_assurance_issue: 1049: {'name': 'Testing1233', 'description': 'MACFLAP NOTIF', 'rules': [{'severity': 4, 'facility': 'SW_MATM6', 'mnemonic': 'MACFLAP_NOTIFic6', 'pattern': 'Host * be in vlan * is flapping between port6 * and port num *', 'occurrences': 6, 'duration_in_minutes': 6}], 'is_enabled': False, 'priority': 'P2', 'is_notification_enabled': True} 
+
+12-02-2024 17:01:44 WARNING  AssuranceSettings: create_assurance_issue: 1050: Testing1233 
+
+12-02-2024 17:01:44 DEBUG  AssuranceSettings: create_assurance_issue: 1051: Assurance issue playbook details: [{'name': 'Testing1233', 'description': 'MACFLAP NOTIF', 'rules': [{'severity': 4, 'facility': 'SW_MATM6', 'mnemonic': 'MACFLAP_NOTIFic6', 'pattern': 'Host * be in vlan * is flapping between port6 * and port num *', 'occurrences': 6, 'duration_in_minutes': 6}], 'is_enabled': False, 'priority': 'P2', 'is_notification_enabled': True}] 
+
+12-02-2024 17:01:44 INFO  AssuranceSettings: create_assurance_issue: 1066: Assurance issue(s) details to be created: {'name': 'Testing1233', 'description': 'MACFLAP NOTIF', 'rules': [{'severity': 4, 'facility': 'SW_MATM6', 'mnemonic': 'MACFLAP_NOTIFic6', 'pattern': 'Host * be in vlan * is flapping between port6 * and port num *', 'occurrences': 6, 'duration_in_minutes': 6}], 'is_enabled': False, 'priority': 'P2', 'is_notification_enabled': True} 
+
+12-02-2024 17:01:45 INFO  AssuranceSettings: create_assurance_issue: 1106: Successfully created user defined issue with these details: {'id': 'c18f412d-df46-4db5-84b1-bf69ffdd7500', 'name': 'Testing1233', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '29c2cf13-8a3c-46c0-b848-edc3bdc20fad', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM6', 'mnemonic': 'MACFLAP_NOTIFic6', 'pattern': 'Host * be in vlan * is flapping between port6 * and port num *', 'occurrences': 6, 'durationInMinutes': 6}], 'isEnabled': False, 'priority': 'P2', 'isDeletable': True, 'isNotificationEnabled': True, 'createdTime': 1733139104997, 'lastUpdatedTime': 1733139104997} 
+
+12-02-2024 17:01:45 DEBUG  AssuranceSettings: check_return_status: 302: Line No: 1027 status: Success, msg: ('user defined issues operation completed successfully.', 'INFO') 
+
+12-02-2024 17:01:45 DEBUG  AssuranceSettings: check_return_status: 302: Line No: 1391 status: Success, msg: ('user defined issues operation completed successfully.', 'INFO') 
+

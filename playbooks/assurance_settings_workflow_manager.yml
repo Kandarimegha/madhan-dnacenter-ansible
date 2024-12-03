@@ -1,0 +1,71 @@
+---
+- name: Configure device credentials on Cisco Catalyst Center
+  hosts: localhost
+  vars_files:
+    - "credentials.yml"
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: assurance settings
+      cisco.dnac.assurance_settings_workflow_manager:
+        dnac_host: "{{dnac_host}}"
+        dnac_username: "{{dnac_username}}"
+        dnac_password: "{{dnac_password}}"
+        dnac_verify: "{{dnac_verify}}"
+        dnac_port: "{{dnac_port}}"
+        dnac_version: "{{dnac_version}}"
+        dnac_debug: "{{dnac_debug}}"
+        dnac_log: True
+        dnac_log_level: DEBUG
+        dnac_api_task_timeout: 1000
+        dnac_task_poll_interval: 1
+        state: merged
+        config_verify: True
+        config:
+        - assurance_user_defined_issue_settings:
+          - name: Testing1233
+            description: MACFLAP NOTIF
+            rules:
+              - severity: 4
+                facility: SW_MATM6
+                mnemonic: MACFLAP_NOTIFic6
+                pattern: Host * be in vlan * is flapping between port6 * and port num *
+                occurrences: 6
+                duration_in_minutes: 6
+            is_enabled: false
+            priority: P2
+            is_notification_enabled: True
+            # prev_name: test2 #Required incase of Name updation
+          # assurance_system_issue_settings:
+          #   - name: "test"
+          #     synchronizeToHealthThreshold: false
+          #     priority: "P2"
+          #     issueEnabled: true
+          #     thresholdValue: "90"
+          # assurance_healthscore:
+          # - kpi_name: cpu_utilization_threshold
+          #   device_family: switch and hubs
+          #   include_for_overall_health: true
+          #   threshold_value: 90
+          #   synchronize_to_issue_threshold: false
+
+
+
+    # - name: Delete issue settings, Assurance icap settings
+    #   cisco.dnac.assurance_settings_workflow_manager:
+    #     dnac_host: "{{ dnac_host }}"
+    #     dnac_port: "{{ dnac_port }}"
+    #     dnac_username: "{{ dnac_username }}"
+    #     dnac_password: "{{ dnac_password }}"
+    #     dnac_verify: "{{ dnac_verify }}"
+    #     dnac_debug: "{{ dnac_debug }}"
+    #     dnac_version: "{{ dnac_version }}"
+    #     dnac_log_level: DEBUG
+    #     dnac_log: True
+    #     state: deleted
+    #     config_verify: True
+    #     config:
+    #     - assurance_issue_settings:
+    #       - name: “test"
+
+          
