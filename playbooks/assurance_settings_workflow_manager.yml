@@ -1,0 +1,57 @@
+---
+- name: Configure device credentials on Cisco Catalyst Center
+  hosts: localhost
+  vars_files:
+    - "credentials.yml"
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: assurance settings
+      cisco.dnac.assurance_settings_workflow_manager:
+        dnac_host: "{{dnac_host}}"
+        dnac_username: "{{dnac_username}}"
+        dnac_password: "{{dnac_password}}"
+        dnac_verify: "{{dnac_verify}}"
+        dnac_port: "{{dnac_port}}"
+        dnac_version: "{{dnac_version}}"
+        dnac_debug: "{{dnac_debug}}"
+        dnac_log: True
+        dnac_log_level: DEBUG
+        dnac_api_task_timeout: 1000
+        dnac_task_poll_interval: 1
+        state: deleted
+        config_verify: True
+        config:
+          - assurance_user_defined_issue_settings:
+            - name: test_dec_16
+            - name: test_seema
+            - name: test_seema_1
+
+              # description: testing settings 1
+              # rules:
+              #   - severity: 5
+              #     facility: redundancy
+              #     mnemonic: peer monitor event
+              #     pattern: issue test
+              #     occurrences: 1
+              #     duration_in_minutes: 2
+              # is_enabled: false
+              # priority: P1
+              # is_notification_enabled: false
+              # prev_name: december11 #Required incase of Name updation
+
+          #  - assurance_system_issue_settings:
+          #       # - name: "fabric_default_route_reg_trigger"
+          #       #   synchronize_to_health_threshold: false
+          #       #   priority: "P2"
+          #       #   issue_enabled: true
+          #       #   threshold_value: "95"
+
+          #       - name: AP Reboot Crash 
+          #         device_type: UNIFIED_AP
+          #         # description: AP has rebooted due to a hardware or software crash.
+          #         synchronize_to_health_threshold: false
+          #         priority: P4
+          #         issue_enabled: True
+          #         threshold_value: "95"
+              

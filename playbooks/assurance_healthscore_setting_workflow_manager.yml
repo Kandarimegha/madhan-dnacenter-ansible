@@ -1,0 +1,182 @@
+---
+- name: Configure device credentials on Cisco Catalyst Center
+  hosts: localhost
+  vars_files:
+    - "credentials.yml"
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: assurance settings
+      cisco.dnac.assurance_healthscore_settings_workflow_manager:
+        dnac_host: "{{dnac_host}}"
+        dnac_username: "{{dnac_username}}"
+        dnac_password: "{{dnac_password}}"
+        dnac_verify: "{{dnac_verify}}"
+        dnac_port: "{{dnac_port}}"
+        dnac_version: "{{dnac_version}}"
+        dnac_debug: "{{dnac_debug}}"
+        dnac_log: True
+        dnac_log_level: DEBUG
+        dnac_api_task_timeout: 1000
+        dnac_task_poll_interval: 1
+        state: merged
+        config_verify: True
+        config:
+          - assurance_healthscore:
+              - kpi_name: linkErrorThreshold
+                device_family: ROUTER
+                include_for_overall_health: true
+                threshold_value: 85
+                synchronize_to_issue_threshold: false
+              - kpi_name: linkDiscardThreshold
+                device_family: WIRED_CLIENT
+                include_for_overall_health: true
+                threshold_value: 90
+                synchronize_to_issue_threshold: false
+
+          # - assurance_healthscore:
+          #   - kpi_name: memoryUtilizationThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 60
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: linkErrorThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: linkDiscardThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: fabricReachability
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: multicastRPReachability
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: lispCpConnScoreThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: lispTransitConnScoreThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: pubsubSessionThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: pubsubTransitSessionScoreThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: pubsubInfraVNSessionScoreThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: fpcLinkScoreThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: infraLinkAvailabilityThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: linkUtilizationThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: defaultRouteThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: bgpBgpSiteThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: bgpEvpnThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: bgpPeerThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: vniStatusThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: peerThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: bgpPubsubSiteThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: bgpTcpThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: bgpPeerInfraVnThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: ctsEnvDataThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+          #   - kpi_name: remoteRouteThreshold
+          #     device_family: ROUTER
+          #     include_for_overall_health: true
+          #     threshold_value: 20
+          #     synchronize_to_issue_threshold: true
+
+              
