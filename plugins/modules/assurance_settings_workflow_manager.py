@@ -313,7 +313,7 @@ EXAMPLES = r"""
         config_verify: True
         config:
         - assurance_user_defined_issue_settings:
-          - name: test         
+          - name: “test"         
 ---
 - hosts: dnac_servers
   vars_files:

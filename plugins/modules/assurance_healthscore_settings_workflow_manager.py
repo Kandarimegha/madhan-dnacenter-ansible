@@ -83,7 +83,7 @@ options:
           - prev_name:
               description: The previous name of the issue setting (used when updating an existing issue setting).
               type: str
-      assurance_healthscore:
+      device_healthscore:
         description: Configures the health score settings for network devices. Defines thresholds for KPIs like CPU utilization, memory, etc.
         type: list
         elements: dict
@@ -335,7 +335,7 @@ EXAMPLES = r"""
         state: merged
         config_verify: true
         config:
-        - assurance_healthscore:
+        - device_healthscore:
           - name: cpu_utilization_threshold #required field
             device_family: switch and hubs #required field
             include_for_overall_health: true
@@ -686,7 +686,7 @@ class Healthscore(DnacBase):
         super().__init__(module)
         self.supported_states = ["merged", "deleted"]
         self.result["response"] = [
-            {"assurance_healthscore_settings": {"response": {}, "msg": {}}},
+            {"device_healthscore_settings": {"response": {}, "msg": {}}},
         ]
         self.create_issue, self.update_issue, self.no_update_issue = [], [], []
 
@@ -708,7 +708,7 @@ class Healthscore(DnacBase):
 
         # Specification for validation
         temp_spec = {
-            'assurance_healthscore': {
+            'device_healthscore': {
                 'type': 'list',
                 'elements': 'dict',
                 'name': {'type': 'str', 'required': True},
@@ -752,7 +752,7 @@ class Healthscore(DnacBase):
         """
 
         try:
-            if get_object == "assurance_healthscore_settings":
+            if get_object == "device_healthscore_settings":
                 obj_params = [
                     ("name", "name"),
                     ("device_family", "device_family"),
@@ -782,7 +782,7 @@ class Healthscore(DnacBase):
         """
 
         want = {}
-        want["assurance_healthscore"] = config.get("assurance_healthscore")
+        want["device_healthscore"] = config.get("device_healthscore")
         if "kpi_name" in want:
             want["name"] = want.pop("kpi_name")
         self.want = want
@@ -803,10 +803,10 @@ class Healthscore(DnacBase):
     #         Reserved Pool, and Network information.
     #     """
     #     self.log(config)
-    #     assurance_healthscore_details = config.get("assurance_healthscore")
+    #     device_healthscore_details = config.get("device_healthscore")
 
-    #     if assurance_healthscore_details is not None:
-    #         self.get_have_assurance_healthscore(assurance_healthscore_details).check_return_status()
+    #     if device_healthscore_details is not None:
+    #         self.get_have_device_healthscore(device_healthscore_details).check_return_status()
 
     #     # self.log("Current State (have): {0}".format(self.have), "INFO")
     #     self.msg = "Successfully retrieved the details from the system"
@@ -818,16 +818,16 @@ class Healthscore(DnacBase):
     #     Get the current assurance healthscore and associated information from the Cisco Catalyst Center 
     #     based on the provided playbook details.
     #     """
-    #     assurance_healthscore_details = config.get("assurance_healthscore")
-    #     self.log(assurance_healthscore_details)
-    #     # assurance_healthscore_details = assurance_healthscore_details.get("assurance_healthscore")
+    #     device_healthscore_details = config.get("device_healthscore")
+    #     self.log(device_healthscore_details)
+    #     # device_healthscore_details = device_healthscore_details.get("device_healthscore")
     #     have = []
     #     healthscore_index = 0
 
-    #     for healthscore_details in assurance_healthscore_details:
+    #     for healthscore_details in device_healthscore_details:
     #         device_family = healthscore_details.get("device_family")
     #         if not device_family:
-    #             self.msg = "Missing required parameter 'device_family' in assurance_healthscore settings"
+    #             self.msg = "Missing required parameter 'device_family' in device_healthscore settings"
     #             self.status = "failed"
     #             return self
 
@@ -843,7 +843,7 @@ class Healthscore(DnacBase):
     #         # synchronize_to_issue_threshold = healthscore_details.get("synchronize_to_issue_threshold")
 
     #         # if include_for_overall_health is None:
-    #         #     self.msg = "Missing required parameters for kpi_name '{0}' in assurance_healthscore settings".format(kpi_name)
+    #         #     self.msg = "Missing required parameters for kpi_name '{0}' in device_healthscore settings".format(kpi_name)
     #         #     self.status = "failed"
     #         #     return self
 
@@ -886,25 +886,25 @@ class Healthscore(DnacBase):
         Get the current assurance healthscore and associated information from the Cisco Catalyst Center 
         based on the provided playbook details.
         """
-        assurance_healthscore_details = config.get("assurance_healthscore")
-        self.log(assurance_healthscore_details)
+        device_healthscore_details = config.get("device_healthscore")
+        self.log(device_healthscore_details)
 
-        if not assurance_healthscore_details:
-            self.msg = "No assurance_healthscore details provided in the configuration."
+        if not device_healthscore_details:
+            self.msg = "No device_healthscore details provided in the configuration."
             self.status = "failed"
             return self
 
         have = []
 
-        for healthscore_details in assurance_healthscore_details:
+        for healthscore_details in device_healthscore_details:
             if "kpi_name" in healthscore_details:
                 healthscore_details["name"] = healthscore_details.pop("kpi_name")
             device_family = healthscore_details.get("device_family")
             if not device_family:
-                self.msg = "Missing required parameter 'device_family' in assurance_healthscore settings."
+                self.msg = "Missing required parameter 'device_family' in device_healthscore settings."
                 self.status = "failed"
                 return self
-            self.log(assurance_healthscore_details)
+            self.log(device_healthscore_details)
             kpi_details = self.get_kpi_details(device_family, healthscore_details)
             self.log(kpi_details)
 
@@ -1002,76 +1002,81 @@ class Healthscore(DnacBase):
         Returns:
             self - The current object with Assurance Issue information.
         """
-        assurance_healthscore_details = config.get("assurance_healthscore")
+        device_healthscore_details = config.get("device_healthscore")
 
-        if assurance_healthscore_details is not None:
-            self.update_healthscore_settings(assurance_healthscore_details).check_return_status()   
+        if device_healthscore_details is not None:
+            self.update_healthscore_settings(device_healthscore_details).check_return_status()   
 
         return self
 
-    def update_healthscore_settings(self, assurance_healthscore_details):
+    def update_healthscore_settings(self, device_healthscore_details):
 
         updated_healthscore_settings = []
-        result_healthscore_settings = self.result.get("response")[0].get("assurance_healthscore_settings")
+        result_healthscore_settings = self.result.get("response")[0].get("device_healthscore_settings")
 
-        for healthscore_setting in assurance_healthscore_details:
+        self.log(device_healthscore_details)
+        for healthscore_setting in device_healthscore_details:
             name = healthscore_setting.get("name")
             if name is None:
-                self.msg = "Missing required parameter 'name' in assurance_healthscore_details"
+                self.msg = "Missing required parameter 'name' in device_healthscore_details"
                 self.status = "failed"
                 return self
 
-            healthscore_obj_params = self.healthscore_obj_params("assurance_healthscore_settings")
+            self.log(self.have)
+            
+            healthscore_obj_params = self.healthscore_obj_params("device_healthscore_settings")
             for item in self.have:
                 self.log(item)
                 self.log(healthscore_setting)
-                if not self.requires_update(item, healthscore_setting, healthscore_obj_params):
-                    self.log(
-                        "Healthscore setting '{0}' doesn't require an update".format(name), "INFO")
-                    result_healthscore_settings.get("msg").update(
-                        {name: "Healthscore setting doesn't require an update"})
-                elif healthscore_setting not in updated_healthscore_settings:
-                        updated_healthscore_settings.append(healthscore_setting)
-
-            if updated_healthscore_settings:
-                healthscore_params = {
-                    "id": item.get("id"),
-                    "payload": {
-                        "includeForOverallHealth": healthscore_setting.get("include_for_overall_health"),
-                        "thresholdValue": healthscore_setting.get("threshold_value"),
-                        "synchronizeToIssueThreshold": healthscore_setting.get("synchronize_to_issue_threshold"),
-                    }
-                }
-
-                self.log(f"Preparing update for healthscore settings '{name}' with params: {healthscore_params}", "DEBUG")
-
-                try:
-                    self.log("hi")
-                    response = self.dnac._exec(
-                        family="devices",
-                        function="update_health_score_definition_for_the_given_id",
-                        op_modifies=True,
-                        params=healthscore_params,
-                    )
-                    self.log(response)
-                    if response.get("response"):
-                        response_data = response.get("response")
-                        self.log(f"Successfully updated healthscore settings '{name}' with details: {response_data}", "INFO")
-                        updated_healthscore_settings.append(response_data)
+                if healthscore_setting.get("name") == item.get("name"):
+                    healthscore_params = {}
+                    if not self.requires_update(item, healthscore_setting, healthscore_obj_params):
+                        self.log(
+                            "Healthscore setting '{0}' doesn't require an update".format(name), "INFO")
+                        result_healthscore_settings.get("msg").update(
+                            {name: "Healthscore setting doesn't require an update"})
                     else:
-                        self.log(f"Failed to update system issue '{name}'", "ERROR")
+                        self.log(updated_healthscore_settings)
+                   
+                        healthscore_params = {
+                            "id": item.get("id"),
+                            "payload": {
+                                "includeForOverallHealth": healthscore_setting.get("include_for_overall_health"),
+                                "thresholdValue": healthscore_setting.get("threshold_value"),
+                                "synchronizeToIssueThreshold": healthscore_setting.get("synchronize_to_issue_threshold"),
+                            }
+                        }
 
-                except Exception as e:
-                    self.msg = "Exception occurred while updating the healthscore settings '{0}':".format(str(name))
-                    self.log(self.msg, "ERROR")
-                    self.status = "failed"
-                    return self
-                result_healthscore_settings.get("response").update(
-                            {"system issue": updated_healthscore_settings})
-                result_healthscore_settings.get("msg").update(
-                {response_data.get("name"): "System issue Updated Successfully"})
-                self.msg = "Successfully updated system-defined issue details."
-                self.result['changed'] = True
+                        self.log(f"Preparing update for healthscore settings '{name}' with params: {healthscore_params}", "DEBUG")
+
+                        try:
+                            self.log("hi")
+                            response = self.dnac._exec(
+                                family="devices",
+                                function="update_health_score_definition_for_the_given_id",
+                                op_modifies=True,
+                                params=healthscore_params,
+                            )
+                            self.log(response)
+                            if response.get("response"):
+                                response_data = response.get("response")
+                                self.log(f"Successfully updated healthscore settings '{name}' with details: {response_data}", "INFO")
+                                updated_healthscore_settings.append(response_data)
+                            else:
+                                self.log(f"Failed to update system issue '{name}'", "ERROR")
+
+                        except Exception as e:
+                            self.msg = "Exception occurred while updating the healthscore settings '{0}':".format(str(name))
+                            self.log(self.msg, "ERROR")
+                            self.status = "failed"
+                            return self
+                    
+                        result_healthscore_settings.get("response").update(
+                                    {"system issue": updated_healthscore_settings})
+                        result_healthscore_settings.get("msg").update(
+                        {response_data.get("name"): "System issue Updated Successfully"})
+        self.msg = "Successfully updated system-defined issue details."
+        self.result['changed'] = True
 
         # Update the `have` object with the updated system issue details
         # self.have.update({"assurance_system_issue_settings": updated_healthscore_settings})
@@ -1091,40 +1096,40 @@ class Healthscore(DnacBase):
             self - The current object with Assurance healthscore information.
         """
 
-        self.all_assurance_healthscore_details = {}
+        self.all_device_healthscore_details = {}
         self.get_have(config)
         self.log("Current State (have): {0}".format(self.have), "INFO")
-        self.log("Requested State (want): {0}".format(self.want.get("assurance_healthscore")), "INFO")
-        if config.get("assurance_healthscore") is not None:
-            assurance_healthscore_index = 0
+        self.log("Requested State (want): {0}".format(self.want.get("device_healthscore")), "INFO")
+        if config.get("device_healthscore") is not None:
+            device_healthscore_index = 0
             self.log("Desired State of assurance healthscore issue settings (want): {0}"
-                     .format(self.want.get("assurance_healthscore")), "DEBUG")
+                     .format(self.want.get("device_healthscore")), "DEBUG")
             self.log("Current State of assurance healthscore issue settings (have): {0}"
                      .format(self.have), "DEBUG")
-            for item in self.want.get("assurance_healthscore"):
-                assurance_healthscore_details = self.have[assurance_healthscore_index]
-                self.log(assurance_healthscore_details)
+            for item in self.want.get("device_healthscore"):
+                device_healthscore_details = self.have[device_healthscore_index]
+                self.log(device_healthscore_details)
                 self.log(item)
 
-                # if not assurance_healthscore_details:
+                # if not device_healthscore_details:
                 #     self.msg = "The Assurance healthscore config is not set in cisco catalyst center : {0}".format(
                 #         item)
                 #     self.status = "failed"
                 #     return self
-                healthscore_obj_params = self.healthscore_obj_params("assurance_healthscore_settings")
+                healthscore_obj_params = self.healthscore_obj_params("device_healthscore_settings")
 
-                if not self.requires_update(assurance_healthscore_details, item, healthscore_obj_params):
+                if not self.requires_update(device_healthscore_details, item, healthscore_obj_params):
 
                     self.msg = "Assurance healthscore Config is not applied to the Cisco Catalyst Center"
                     self.status = "failed"
                     return self
 
                 
-                assurance_healthscore_index += 1
+                device_healthscore_index += 1
 
                 self.log("Successfully validated Assurance healthscore setting(s).", "INFO")
                 self.result.get("response")[0].get(
-                    "assurance_healthscore_settings").update({"Validation": "Success"})
+                    "device_healthscore_settings").update({"Validation": "Success"})
 
         self.msg = "Successfully validated the Assurance user defined issue."
         self.status = "success"

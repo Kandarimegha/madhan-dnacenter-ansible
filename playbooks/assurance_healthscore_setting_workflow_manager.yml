@@ -22,17 +22,38 @@
         state: merged
         config_verify: True
         config:
-          - assurance_healthscore:
+          - device_healthscore:
               - kpi_name: linkErrorThreshold
-                device_family: ROUTER
+                device_family: WIRELESS_CONTROLLER
                 include_for_overall_health: true
-                threshold_value: 85
+                threshold_value: 60
                 synchronize_to_issue_threshold: false
-              - kpi_name: linkDiscardThreshold
-                device_family: WIRED_CLIENT
+              - kpi_name: cpuUtilizationThreshold
+                device_family:  UNIFIED_AP
                 include_for_overall_health: true
-                threshold_value: 90
+                threshold_value: 70
                 synchronize_to_issue_threshold: false
+              # - kpi_name: linkDiscardThreshold
+              #   device_family:  WIRED_CLIENT
+              #   include_for_overall_health: true
+              #   threshold_value: 70
+              #   synchronize_to_issue_threshold: false
+
+
+
+            # - assurance_healthscore:
+            #   - kpi_name: linkErrorThreshold
+            #     device_family: ROUTER
+            #     include_for_overall_health: true
+            #     threshold_value: 85
+            #     synchronize_to_issue_threshold: true
+              
+            #   - kpi_name: memoryUtilizationThreshold
+            #     device_family: ROUTER
+            #     include_for_overall_health: true
+            #     threshold_value: 65
+            #     synchronize_to_issue_threshold: true
+
 
           # - assurance_healthscore:
           #   - kpi_name: memoryUtilizationThreshold
