@@ -2933,45 +2933,45 @@ class NetworkSettings(DnacBase):
                         want_network_settings.get("netflowcollector").update({
                             "enableOnWiredAccessDevices": False
                         })
+                else:
+                    del want_network_settings["netflowcollector"]
 
-                    want_network_settings.update({
+                want_network_settings.update({
                         "wired_data_collection": {},
                         "wireless_telemetry": {}
                     })
 
-                    wired_data_collection = item.get("wired_data_collection")
-                    if wired_data_collection is not None:
-                        if wired_data_collection.get("enable_wired_data_collection") is not None and \
-                           wired_data_collection.get("enable_wired_data_collection") is True:
-                            want_network_settings.get("wired_data_collection").update({
-                                "enableWiredDataCollection": True
-                            })
-                        else:
-                            want_network_settings.get("wired_data_collection").update({
-                                "enableWiredDataCollection": False
-                            })
+                wired_data_collection = item.get("wired_data_collection")
+                if wired_data_collection is not None:
+                    if wired_data_collection.get("enable_wired_data_collection") is not None and \
+                        wired_data_collection.get("enable_wired_data_collection") is True:
+                        want_network_settings.get("wired_data_collection").update({
+                            "enableWiredDataCollection": True
+                        })
                     else:
                         want_network_settings.get("wired_data_collection").update({
                             "enableWiredDataCollection": False
                         })
+                else:
+                    want_network_settings.get("wired_data_collection").update({
+                        "enableWiredDataCollection": False
+                    })
 
-                    wireless_telemetry = item.get("wireless_telemetry")
-                    if wireless_telemetry is not None:
-                        if wired_data_collection.get("enable_wireless_telemetry") is not None and \
-                           wired_data_collection.get("enable_wireless_telemetry") is True:
-                            want_network_settings.get("wireless_telemetry").update({
-                                "enableWirelessTelemetry": True
-                            })
-                        else:
-                            want_network_settings.get("wireless_telemetry").update({
-                                "enableWirelessTelemetry": False
-                            })
+                wireless_telemetry = item.get("wireless_telemetry")
+                if wireless_telemetry is not None:
+                    if wireless_telemetry.get("enable_wireless_telemetry") is not None and \
+                        wireless_telemetry.get("enable_wireless_telemetry") is True:
+                        want_network_settings.get("wireless_telemetry").update({
+                            "enableWirelessTelemetry": True
+                        })
                     else:
                         want_network_settings.get("wireless_telemetry").update({
                             "enableWirelessTelemetry": False
                         })
                 else:
-                    del want_network_settings["netflowcollector"]
+                    want_network_settings.get("wireless_telemetry").update({
+                        "enableWirelessTelemetry": False
+                    })
 
                 message_of_the_day = item.get("message_of_the_day")
                 if message_of_the_day is not None:
