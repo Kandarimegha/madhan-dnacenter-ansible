@@ -3764,7 +3764,7 @@ class NetworkSettings(DnacBase):
                     self.log("Received API response of 'set_banner_settings_for_a_site': {0}".format(response), "DEBUG")
                     self.check_tasks_response_status(response, "set_banner_settings_for_a_site").check_return_status()
 
-                if all([
+                if any([
                     net_params.get("settings", {}).get("snmpServer"),
                     net_params.get("settings", {}).get("syslogServer"),
                     net_params.get("settings", {}).get("netflowcollector"),
