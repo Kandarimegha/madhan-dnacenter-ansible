@@ -1,0 +1,269 @@
+{
+    "playbook_config_updation": [
+      {
+        "assurance_user_defined_issue_settings": [
+          {
+            "name": "test_user_defined",
+            "description": "testing settings 1",
+            "rules": [
+              {
+                "severity": 2,
+                "facility": "redundancy",
+                "mnemonic": "peer monitor event",
+                "pattern": "issue test",
+                "occurrences": 1,
+                "duration_in_minutes": 2
+              }
+            ],
+            "is_enabled": true,
+            "priority": "P2",
+            "is_notification_enabled": true,
+            "prev_name": "test_seema_1"
+          }
+        ]
+      }
+    ],
+    "issue_exist":
+    {
+        "response": [],
+        "page": {
+          "limit": 50,
+          "offset": 1,
+          "count": 0,
+          "sortBy": [
+            {
+              "name": "name",
+              "order": "asc"
+            }
+          ]
+        },
+        "version": "1.0"
+      },
+    
+      "prev_issue_exist":
+      {
+        "response": [
+          {
+            "id": "85f182d2-98cd-4ef9-a029-c6db9a987846",
+            "name": "test_seema_1",
+            "description": "testing settings 1",
+            "profileId": "global",
+            "triggerId": "7d75546e-9ca0-4157-a550-60bfedbf0fc6",
+            "rules": [
+              {
+                "type": "syslog",
+                "severity": "2",
+                "facility": "redundancy",
+                "mnemonic": "peer monitor event",
+                "pattern": "issue test",
+                "occurrences": 1,
+                "durationInMinutes": 2
+              }
+            ],
+            "isEnabled": true,
+            "priority": "P2",
+            "isDeletable": true,
+            "isNotificationEnabled": true,
+            "createdTime": 1735638314866,
+            "lastUpdatedTime": 1735649966885
+          }
+        ],
+        "page": {
+          "limit": 50,
+          "offset": 1,
+          "count": 1,
+          "sortBy": [
+            {
+              "name": "name",
+              "order": "asc"
+            }
+          ]
+        },
+        "version": "1.0"
+      },
+
+      "issue_updation":
+      {
+        "response": {
+          "id": "85f182d2-98cd-4ef9-a029-c6db9a987846",
+          "name": "test_user_defined",
+          "description": "testing settings 1",
+          "profileId": "global",
+          "triggerId": "7d75546e-9ca0-4157-a550-60bfedbf0fc6",
+          "rules": [
+            {
+              "type": "syslog",
+              "severity": "2",
+              "facility": "redundancy",
+              "mnemonic": "peer monitor event",
+              "pattern": "issue test",
+              "occurrences": 1,
+              "durationInMinutes": 2
+            }
+          ],
+          "isEnabled": true,
+          "priority": "P2",
+          "isDeletable": true,
+          "isNotificationEnabled": true,
+          "createdTime": 1735638314866,
+          "lastUpdatedTime": 1735882589677
+        },
+        "version": "1.0"
+      },
+
+      "issue_exist_after_updation":
+      {
+        "response": [
+          {
+            "id": "85f182d2-98cd-4ef9-a029-c6db9a987846",
+            "name": "test_user_defined",
+            "description": "testing settings 1",
+            "profileId": "global",
+            "triggerId": "7d75546e-9ca0-4157-a550-60bfedbf0fc6",
+            "rules": [
+              {
+                "type": "syslog",
+                "severity": "2",
+                "facility": "redundancy",
+                "mnemonic": "peer monitor event",
+                "pattern": "issue test",
+                "occurrences": 1,
+                "durationInMinutes": 2
+              }
+            ],
+            "isEnabled": true,
+            "priority": "P2",
+            "isDeletable": true,
+            "isNotificationEnabled": true,
+            "createdTime": 1735638314866,
+            "lastUpdatedTime": 1735882589677
+          }
+        ],
+        "page": {
+          "limit": 50,
+          "offset": 1,
+          "count": 1,
+          "sortBy": [
+            {
+              "name": "name",
+              "order": "asc"
+            }
+          ]
+        },
+        "version": "1.0"
+      },
+
+      "playbook_config_creation": [
+        {
+            "assurance_user_defined_issue_settings": [
+              {
+                "name": "Testing_creation",
+                "description": "testing settings 1",
+                "rules": [
+                  {
+                    "severity": 2,
+                    "facility": "Alert",
+                    "mnemonic": "peer monitor event",
+                    "pattern": "issue test",
+                    "occurrences": 1,
+                    "duration_in_minutes": 2
+                  }
+                ],
+                "is_enabled": true,
+                "priority": "P2",
+                "is_notification_enabled": true
+              }
+            ]
+          }
+    ],
+
+    "Testing_creation_exit":
+    {
+        "response": [],
+        "page": {
+          "limit": 50,
+          "offset": 1,
+          "count": 0,
+          "sortBy": [
+            {
+              "name": "name",
+              "order": "asc"
+            }
+          ]
+        },
+        "version": "1.0"
+    },
+
+    "issue_creation":
+    {
+        "response": {
+          "id": "a44345cd-3dc8-4864-acfb-35708a5035d8",
+          "name": "Testing_creation",
+          "description": "testing settings 1",
+          "profileId": "global",
+          "triggerId": "e1afbab7-4b4a-42eb-a242-2e2138bab16d",
+          "rules": [
+            {
+              "type": "syslog",
+              "severity": "2",
+              "facility": "Alert",
+              "mnemonic": "peer monitor event",
+              "pattern": "issue test",
+              "occurrences": 1,
+              "durationInMinutes": 2
+            }
+          ],
+          "isEnabled": true,
+          "priority": "P2",
+          "isDeletable": true,
+          "isNotificationEnabled": true,
+          "createdTime": 1735889563361,
+          "lastUpdatedTime": 1735889563361
+        }
+      },
+
+      "exist_after_creation":
+      {
+        "response": [
+          {
+            "id": "a44345cd-3dc8-4864-acfb-35708a5035d8",
+            "name": "Testing_creation",
+            "description": "testing settings 1",
+            "profileId": "global",
+            "triggerId": "e1afbab7-4b4a-42eb-a242-2e2138bab16d",
+            "rules": [
+              {
+                "type": "syslog",
+                "severity": "2",
+                "facility": "Alert",
+                "mnemonic": "peer monitor event",
+                "pattern": "issue test",
+                "occurrences": 1,
+                "durationInMinutes": 2
+              }
+            ],
+            "isEnabled": true,
+            "priority": "P2",
+            "isDeletable": true,
+            "isNotificationEnabled": true,
+            "createdTime": 1735889563361,
+            "lastUpdatedTime": 1735889563361
+          }
+        ],
+        "page": {
+          "limit": 50,
+          "offset": 1,
+          "count": 1,
+          "sortBy": [
+            {
+              "name": "name",
+              "order": "asc"
+            }
+          ]
+        },
+        "version": "1.0"
+      }
+      
+      
+
+}
