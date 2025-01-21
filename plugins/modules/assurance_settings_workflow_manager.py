@@ -1012,7 +1012,6 @@ class AssuranceSettings(DnacBase):
         want = {}
         want["assurance_user_defined_issue_settings"] = config.get("assurance_user_defined_issue_settings")
         want["assurance_system_issue_settings"] = config.get("assurance_system_issue_settings")
-        want["assurance_pathtrace"] = config.get("assurance_pathtrace")
         want["assurance_issue_resolution"] = config.get("assurance_issue_resolution")
         want["assurance_ignore_issue"] = config.get("assurance_ignore_issue")
         want["assurance_execute_suggested_commands"] = config.get("assurance_execute_suggested_commands")
@@ -1181,7 +1180,6 @@ class AssuranceSettings(DnacBase):
                     function= "get_all_the_custom_issue_definitions_based_on_the_given_filters",
                     params={"name":name}
             )
-                self.log(response)
             except Exception as msg:
                 match = re.search(r'status_code:\s*(\d+)', str(msg))
                 if match and int(match.group(1)) == 404:
@@ -1250,10 +1248,8 @@ class AssuranceSettings(DnacBase):
         """
         Assurance_issue = []
         Assurance_issue_index = 0
-        self.log(assurance_user_defined_issue_settings)
         for issues_setting in assurance_user_defined_issue_settings:
             name = issues_setting.get("name")
-            self.log(issues_setting)
             if name is None:
                 self.msg = "Missing required parameter 'name' in assurance_user_defined_issue_settings"
                 self.status = "failed"
@@ -1283,7 +1279,6 @@ class AssuranceSettings(DnacBase):
             prev_name = issues_setting.get("prev_name")
             if Assurance_issue[Assurance_issue_index].get("exists") is False and \
                     prev_name is not None:
-                self.log(prev_name)
                 Assurance_issue.pop()
                 Assurance_issue.append(self.assurance_issues_exists(prev_name))
                 if Assurance_issue[Assurance_issue_index].get("exists") is False:
@@ -1469,7 +1464,6 @@ class AssuranceSettings(DnacBase):
                 op_modifies=True,
                 params=dict(issueIds = issue_ids)
             )
-         
             self.log("Response from ignore issue API response: {0}".format(
                 response), "DEBUG")
 
@@ -1559,7 +1553,6 @@ class AssuranceSettings(DnacBase):
         result_assurance_issue = self.result.get("response")[1].get("assurance_system_issue_settings")
         for issue_setting in assurance_system_issue_details:
             name = issue_setting.get("name")
-            self.log(issue_setting)
             if name is None:
                 self.msg = "Missing required parameter 'name' in assurance_system_issue_details"
                 self.status = "failed"
@@ -1605,6 +1598,8 @@ class AssuranceSettings(DnacBase):
                                 op_modifies=True,
                                 params=system_issue_params,
                             )
+                            self.log("RESPONSE_UT")
+                            self.log(response)
                             response_data = response.get("response")
                             if response_data:
                                 self.log(f"Successfully updated system-defined issue '{name}' with details: {response_data}", "INFO")
@@ -1849,7 +1844,8 @@ class AssuranceSettings(DnacBase):
                         op_modifies=True,
                         params={"id": id},
                     )
-            
+                    self.log("deletion log")
+                    self.log(response)
                 except Exception as e:
                         expected_exception_msgs = [
                             "Expecting value: line 1 column 1",
@@ -2216,7 +2212,7 @@ def main():
     if ccc_assurance.compare_dnac_versions(ccc_assurance.get_ccc_version(), "2.3.7.6") < 0:
         ccc_assurance.status = "failed"
         ccc_assurance.msg = (
-            "The specified version '{0}' does not support the access point workflow feature."
+            "The specified version '{0}' does not support the assurance issue settings workflow feature."
             "Supported version(s) start from '2.3.7.6' onwards.".format(ccc_assurance.get_ccc_version())
         )
         ccc_assurance.log(ccc_assurance.msg, "ERROR")

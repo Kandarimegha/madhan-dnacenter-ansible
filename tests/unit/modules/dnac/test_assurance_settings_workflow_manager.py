@@ -1,4 +1,4 @@
-# Copyright (c) 2024 Cisco and/or its affiliates.
+# Copyright (c) 2025 Cisco and/or its affiliates.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,6 +25,17 @@ class TestDnacAssuranceSettings(TestDnacModule):
     test_data = loadPlaybookData("assurance_settings_workflow_manager")
     playbook_config_updation= test_data.get("playbook_config_updation")
     playbook_config_creation = test_data.get("playbook_config_creation")
+    playbook_config_deletion = test_data.get("playbook_config_deletion")
+    playbook_config_system_issue_updation = test_data.get("playbook_config_system_issue_updation")
+    playbook_config_command_execution = test_data.get("playbook_config_command_execution")
+    playbook_config_No_data_found = test_data.get("playbook_config_No_data_found")
+    playbook_config_resolution = test_data.get("playbook_config_resolution")
+    playbook_config_ignore = test_data.get("playbook_config_ignore")
+    playbook_config_invalid_severity = test_data.get("playbook_config_invalid_severity")
+    playbook_config_invalid_duration = test_data.get("playbook_config_invalid_duration")
+    playbook_config_invalid_name = test_data.get("playbook_config_invalid_name")
+    playbook_config_invalid_priority = test_data.get("playbook_config_invalid_priority")
+    playbook_config_invalid_time_format = test_data.get("playbook_config_invalid_time_format")
 
     def setUp(self):
         super(TestDnacAssuranceSettings, self).setUp()
@@ -65,7 +76,61 @@ class TestDnacAssuranceSettings(TestDnacModule):
                 # self.test_data.get("issue_exist_after_updation")
             ]
 
-    def test_assurance_settings_workflow_manager_with_issue_resolve_updation(self):
+        if "deletion" in self._testMethodName:
+            self.run_dnac_exec.side_effect = [
+                self.test_data.get("get_API_response_deletion"),
+                # self.test_data.get("deletion"),
+                Exception(),
+                self.test_data.get("after_deletion_get_response"),
+            ]
+
+        if "update_system_issue" in self._testMethodName:
+            self.run_dnac_exec.side_effect = [
+                self.test_data.get("get_system_issue"),
+                self.test_data.get("get_system_issue2"),
+                self.test_data.get("system_issue_update"),
+                self.test_data.get("get_updated_system_issue_1"),
+                self.test_data.get("get_updated_system_issue_2")
+            ]
+
+        if "command_execution" in self._testMethodName:
+            self.run_dnac_exec.side_effect = [
+                self.test_data.get("get_issue_ids_command_execution"),
+                self.test_data.get("command_execution"),
+                self.test_data.get("get_business_api_execution_details")
+            ]
+
+        if "No_data_found" in self._testMethodName:
+            self.run_dnac_exec.side_effect = [
+                self.test_data.get("get_issue_ids_No_data_found"),
+                # self.test_data.get("command_execution"),
+                # self.test_data.get("get_business_api_execution_details")
+            ]
+
+        if "resolution" in self._testMethodName:
+            self.run_dnac_exec.side_effect = [
+                self.test_data.get("get_issue_ids_resolution"),
+                self.test_data.get("Issue_resolve_response"),
+            ]
+
+        if "ignore" in self._testMethodName:
+            self.run_dnac_exec.side_effect = [
+                self.test_data.get("get_issue_ids_resolution"),
+                self.test_data.get("Issue_ignore_response"),
+                # self.test_data.get("get_business_api_execution_details")
+            ]
+
+        if "invalid_time_format" in self._testMethodName:
+            self.run_dnac_exec.side_effect = [
+                self.test_data.get("get_issue_ids_resolution"),
+                # self.test_data.get("Issue_ignore_response"),
+                # self.test_data.get("get_business_api_execution_details")
+            ]
+
+
+
+
+    def test_assurance_settings_workflow_manager_updation(self):
         """
         Test case for healthscore settings workflow manager when creating a device credential.
 
@@ -92,7 +157,7 @@ class TestDnacAssuranceSettings(TestDnacModule):
               'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True, 'prev_name': 'test_seema_1'}}
         )
 
-    def test_assurance_settings_workflow_manager_with_issue_resolve_creation(self):
+    def test_assurance_settings_workflow_manager_creation(self):
         """
         Test case for healthscore settings workflow manager when creating a device credential.
 
@@ -119,98 +184,250 @@ class TestDnacAssuranceSettings(TestDnacModule):
             'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}}
         )
 
-    # def test_healthscore_settings_workflow_manager_update_not_required(self):
-    #     """
-    #     Test case for healthscore settings workflow manager when creating a device credential.
+    def test_assurance_settings_workflow_manager_deletion(self):
+        """
+        Test case for assurance issue settings workflow manager when creating a device credential.
 
-    #     This test case checks the behavior of the healthscore settings workflow manager when creating a new device credentials in the specified DNAC.
-    #     """
-    #     set_module_args(
-    #         dict(
-    #             dnac_host="1.1.1.1",
-    #             dnac_username="dummy",
-    #             dnac_password="dummy",
-    #             dnac_log=True,
-    #             state="merged",
-    #             config=self.playbook_config_updation
-    #         )
-    #     )
-    #     result = self.execute_module(changed= True, failed=False)
-    #     print(result['response'][0]['device_healthscore_settings']['msg'])
-    #     self.assertEqual(
-    #         result['response'][0]['device_healthscore_settings']['msg'],
-    #         {'linkDiscardThreshold': "Healthscore setting doesn't require an update"}
-    #     )
+        This test case checks the behavior of the assurance issue settings workflow manager when deleting assurance user defined issue in the specified DNAC.
+        """
+        set_module_args(
+            dict(
+                dnac_host="1.1.1.1",
+                dnac_username="dummy",
+                dnac_password="dummy",
+                dnac_log=True,
+                state="deleted",
+                dnac_version = "2.3.7.9",
+                config=self.playbook_config_deletion,
+                config_verify = True
+            )
+        )
+        result = self.execute_module(changed= True, failed=False)
+        print(result['response'][0]['assurance_user_defined_issue_settings']['msg'])
+        self.assertEqual(
+            result['response'][0]['assurance_user_defined_issue_settings']['msg'],
+            {'ippo': 'Assurance user issue deleted successfully'}
+        )
 
-    # def test_healthscore_settings_workflow_manager_error_while_update(self):
-    #     """
-    #     Test case for healthscore settings workflow manager when creating a device credential.
+    def test_assurance_settings_workflow_manager_update_system_issue(self):
+        """
+        Test case for assurance issue settings workflow manager when creating a device credential.
 
-    #     This test case checks the behavior of the healthscore settings workflow manager when creating a new device credentials in the specified DNAC.
-    #     """
-    #     set_module_args(
-    #         dict(
-    #             dnac_host="1.1.1.1",
-    #             dnac_username="dummy",
-    #             dnac_password="dummy",
-    #             dnac_log=True,
-    #             state="merged",
-    #             config_verify=True,
-    #             config=self.playbook_config_updation
-    #         )
-    #     )
-    #     result = self.execute_module(changed= False, failed=True)
-    #     print(result['response'][0]['device_healthscore_settings']['msg'])
-    #     self.assertEqual(
-    #         result['response'][0]['device_healthscore_settings']['msg'],
-    #         {}
-    #     )
+        This test case checks the behavior of the assurance issue settings workflow manager when deleting assurance user defined issue in the specified DNAC.
+        """
+        set_module_args(
+            dict(
+                dnac_host="1.1.1.1",
+                dnac_username="dummy",
+                dnac_password="dummy",
+                dnac_log=True,
+                state="merged",
+                dnac_version = "2.3.7.9",
+                config=self.playbook_config_system_issue_updation,
+                config_verify = True
+            )
+        )
+        result = self.execute_module(changed= True, failed=False)
+        print(result['response'][1]['assurance_system_issue_settings']['msg'])
+        self.assertEqual(
+            result['response'][1]['assurance_system_issue_settings']['msg'],
+           {'AP Reboot Crash': 'System issue Updated Successfully'}
+        )
 
-    # def test_healthscore_settings_workflow_manager_updation(self):
-    #     """
-    #     Test case for healthscore settings workflow manager when creating a device credential.
+    def test_assurance_settings_workflow_manager_command_execution(self):
+            """
+            Test case for assurance issue settings workflow manager when creating a device credential.
 
-    #     This test case checks the behavior of the healthscore settings workflow manager when creating a new device credentials in the specified DNAC.
-    #     """
-    #     set_module_args(
-    #         dict(
-    #             dnac_host="1.1.1.1",
-    #             dnac_username="dummy",
-    #             dnac_password="dummy",
-    #             dnac_log=True,
-    #             state="merged",
-    #             config_verify=True,
-    #             config=self.playbook_config_updation
-    #         )
-    #     )
-    #     result = self.execute_module(changed= True, failed=False)
-    #     print(result['response'][0]['device_healthscore_settings']['msg'])
-    #     self.assertEqual(
-    #         result['response'][0]['device_healthscore_settings']['msg'],
-    #         {'linkDiscardThreshold': 'Healthscore settings Updated Successfully'}
-    #     )
+            This test case checks the behavior of the assurance issue settings workflow manager when 
+            
+            deleting assurance user defined issue in the specified DNAC.
+            """
+            set_module_args(
+                dict(
+                    dnac_host="1.1.1.1",
+                    dnac_username="dummy",
+                    dnac_password="dummy",
+                    dnac_log=True,
+                    state="merged",
+                    dnac_version = "2.3.7.9",
+                    config=self.playbook_config_command_execution,
+                    config_verify = True
+                )
+            )
+            result = self.execute_module(changed= True, failed=False)
+            print(result['response']['input_isssue_config'])
+            self.assertEqual(
+                result['response']['input_isssue_config'],
+            [{'issue_name': 'jan8_1', 'issue_process_type': 'command_execution'}]
+            )
 
-    # def test_healthscore_settings_workflow_manager_verification_failure(self):
-    #     """
-    #     Test case for healthscore settings workflow manager when creating a device credential.
+    def test_assurance_settings_workflow_manager_No_data_found(self):
+            """
+            Test case for assurance issue settings workflow manager when creating a device credential.
 
-    #     This test case checks the behavior of the healthscore settings workflow manager when creating a new device credentials in the specified DNAC.
-    #     """
-    #     set_module_args(
-    #         dict(
-    #             dnac_host="1.1.1.1",
-    #             dnac_username="dummy",
-    #             dnac_password="dummy",
-    #             dnac_log=True,
-    #             state="merged",
-    #             config_verify=True,
-    #             config=self.playbook_config_updation
-    #         )
-    #     )
-    #     result = self.execute_module(changed= True, failed=True)
-    #     print(result['response'][0]['device_healthscore_settings']['msg'])
-    #     self.assertEqual(
-    #         result['response'][0]['device_healthscore_settings']['msg'],
-    #         {}
-    #     )
+            This test case checks the behavior of the assurance issue settings workflow manager when 
+            
+            deleting assurance user defined issue in the specified DNAC.
+            """
+            set_module_args(
+                dict(
+                    dnac_host="1.1.1.1",
+                    dnac_username="dummy",
+                    dnac_password="dummy",
+                    dnac_log=True,
+                    state="merged",
+                    dnac_version = "2.3.7.9",
+                    config=self.playbook_config_No_data_found,
+                    config_verify = True
+                )
+            )
+            result = self.execute_module(changed= False, failed=True)
+            print(result)
+            self.assertEqual(
+                result['msg'],
+                "No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}"
+            )
 
+    def test_assurance_settings_workflow_manager_resolution(self):
+                """
+                Test case for assurance issue settings workflow manager when creating a device credential.
+
+                This test case checks the behavior of the assurance issue settings workflow manager when 
+                
+                deleting assurance user defined issue in the specified DNAC.
+                """
+                set_module_args(
+                    dict(
+                        dnac_host="1.1.1.1",
+                        dnac_username="dummy",
+                        dnac_password="dummy",
+                        dnac_log=True,
+                        state="merged",
+                        dnac_version = "2.3.7.9",
+                        config=self.playbook_config_resolution,
+                        config_verify = True
+                    )
+                )
+                result = self.execute_module(changed= True, failed=False)
+                print(result['msg'])
+                self.assertEqual(
+                    result['msg'],
+                    "Issue resolution verified successfully for '[{'issue_name': 'Rangatestlink', 'issue_process_type': 'resolution'}]'."
+                )
+
+    def test_assurance_settings_workflow_manager_ignore(self):
+                """
+                Test case for assurance issue settings workflow manager when creating a device credential.
+
+                This test case checks the behavior of the assurance issue settings workflow manager when 
+                
+                deleting assurance user defined issue in the specified DNAC.
+                """
+                set_module_args(
+                    dict(
+                        dnac_host="1.1.1.1",
+                        dnac_username="dummy",
+                        dnac_password="dummy",
+                        dnac_log=True,
+                        state="merged",
+                        dnac_version = "2.3.7.9",
+                        config=self.playbook_config_ignore,
+                        config_verify = True
+                    )
+                )
+                result = self.execute_module(changed= False, failed=True)
+                print(result['response'])
+                self.assertEqual(
+                    result['response'],
+                    {'input_isssue_config': [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"',
+                                            'issue_process_type': 'ignore'}], 'issue_ignored': {'processed_issues_ignored': 
+                                            [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"',
+                                            'issue_process_type': 'ignore'}], 'unprocessed_issues_ignored': [], 'processed_logs_ignored':
+                                              [{'successfulIssueIds': ['dd932cc9-e773-4d4e-8894-e9c1cae8847']}]}}
+                )
+
+    def test_assurance_settings_workflow_manager_invalid_severity(self):
+        """
+        Test case for healthscore settings workflow manager when creating a device credential.
+
+        This test case checks the behavior of the healthscore settings workflow manager when creating a new device credentials in the specified DNAC.
+        """
+        set_module_args(
+            dict(
+                dnac_host="1.1.1.1",
+                dnac_username="dummy",
+                dnac_password="dummy",
+                dnac_version="2.3.7.6",
+                dnac_log=True,
+                state="merged",
+                config_verify=True,
+                config=self.playbook_config_invalid_severity
+            )
+        )
+        result = self.execute_module(changed= False, failed=True)
+        self.assertIn("Invalid parameters in playbook config", result['response'])
+
+    def test_assurance_settings_workflow_manager_invalid_duration(self):
+        """
+        Test case for healthscore settings workflow manager when creating a device credential.
+
+        This test case checks the behavior of the healthscore settings workflow manager when creating a new device credentials in the specified DNAC.
+        """
+        set_module_args(
+            dict(
+                dnac_host="1.1.1.1",
+                dnac_username="dummy",
+                dnac_password="dummy",
+                dnac_version="2.3.7.6",
+                dnac_log=True,
+                state="merged",
+                config_verify=True,
+                config=self.playbook_config_invalid_duration
+            )
+        )
+        result = self.execute_module(changed= False, failed=True)
+        self.assertIn("Invalid parameters in playbook config", result['response'])
+
+    def test_assurance_settings_workflow_manager_invalid_priority(self):
+        """
+        Test case for healthscore settings workflow manager when creating a device credential.
+
+        This test case checks the behavior of the healthscore settings workflow manager when creating a new device credentials in the specified DNAC.
+        """
+        set_module_args(
+            dict(
+                dnac_host="1.1.1.1",
+                dnac_username="dummy",
+                dnac_password="dummy",
+                dnac_version="2.3.7.6",
+                dnac_log=True,
+                state="merged",
+                config_verify=True,
+                config=self.playbook_config_invalid_priority
+            )
+        )
+        result = self.execute_module(changed= False, failed=True)
+        self.assertIn("Invalid parameters in playbook config", result['response'])
+
+    def test_assurance_settings_workflow_manager_invalid_time_format(self):
+        """
+        Test case for healthscore settings workflow manager when creating a device credential.
+
+        This test case checks the behavior of the healthscore settings workflow manager when creating a new device credentials in the specified DNAC.
+        """
+        set_module_args(
+            dict(
+                dnac_host="1.1.1.1",
+                dnac_username="dummy",
+                dnac_password="dummy",
+                dnac_version="2.3.7.6",
+                dnac_log=True,
+                state="merged",
+                config_verify=True,
+                config=self.playbook_config_invalid_time_format
+            )
+        )
+        result = self.execute_module(changed= False, failed=True)
+        self.assertIn("Invalid parameters in playbook config", result['response'])
+        self.assertIn("Unable to validate Start date time, end date time", result['response'])
+        self.assertIn("time data '2024-12-41 16:00:00' does not match format", result['response'])
