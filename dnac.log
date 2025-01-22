@@ -1,0 +1,702 @@
+01-20-2025 12:47:02 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}] 
+
+01-20-2025 12:47:02 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:47:02 WARNING  AssuranceSettings: assurance_issues_exists: 1170: Testing_creation 
+
+01-20-2025 12:47:02 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [], 'page': {'limit': 50, 'offset': 1, 'count': 0, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 12:47:02 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}]} 
+
+01-20-2025 12:47:02 WARNING  AssuranceSettings: create_assurance_issue: 1646: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:47:02 WARNING  AssuranceSettings: create_assurance_issue: 1647: Testing_creation 
+
+01-20-2025 12:47:02 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}] 
+
+01-20-2025 12:47:02 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:47:02 WARNING  AssuranceSettings: assurance_issues_exists: 1170: Testing_creation 
+
+01-20-2025 12:47:02 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'rules': [{'type': 'syslog', 'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'durationInMinutes': 2}], 'isEnabled': True, 'priority': 'P2', 'isDeletable': True, 'isNotificationEnabled': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 12:47:02 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': True, 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'priority': 'P2', 'isDeletable': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361}] 
+
+01-20-2025 12:47:02 WARNING  AssuranceSettings: verify_diff_merged: 2036: {'is_enabled': True, 'is_notification_enabled': True, 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'priority': 'P2', 'isDeletable': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361} 
+
+01-20-2025 12:55:47 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}] 
+
+01-20-2025 12:55:47 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:55:47 WARNING  AssuranceSettings: assurance_issues_exists: 1170: Testing_creation 
+
+01-20-2025 12:55:47 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [], 'page': {'limit': 50, 'offset': 1, 'count': 0, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 12:55:47 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}]} 
+
+01-20-2025 12:55:47 WARNING  AssuranceSettings: create_assurance_issue: 1646: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:55:47 WARNING  AssuranceSettings: create_assurance_issue: 1647: Testing_creation 
+
+01-20-2025 12:55:48 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}] 
+
+01-20-2025 12:55:48 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:55:48 WARNING  AssuranceSettings: assurance_issues_exists: 1170: Testing_creation 
+
+01-20-2025 12:55:48 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'rules': [{'type': 'syslog', 'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'durationInMinutes': 2}], 'isEnabled': True, 'priority': 'P2', 'isDeletable': True, 'isNotificationEnabled': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 12:55:48 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': True, 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'priority': 'P2', 'isDeletable': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361}] 
+
+01-20-2025 12:55:48 WARNING  AssuranceSettings: verify_diff_merged: 2036: {'is_enabled': True, 'is_notification_enabled': True, 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'priority': 'P2', 'isDeletable': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361} 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}] 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: assurance_issues_exists: 1170: Testing_creation 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [], 'page': {'limit': 50, 'offset': 1, 'count': 0, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}]} 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: create_assurance_issue: 1646: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: create_assurance_issue: 1647: Testing_creation 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}] 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: assurance_issues_exists: 1170: Testing_creation 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'rules': [{'type': 'syslog', 'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'durationInMinutes': 2}], 'isEnabled': True, 'priority': 'P2', 'isDeletable': True, 'isNotificationEnabled': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': True, 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'priority': 'P2', 'isDeletable': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361}] 
+
+01-20-2025 12:57:01 WARNING  AssuranceSettings: verify_diff_merged: 2036: {'is_enabled': True, 'is_notification_enabled': True, 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'priority': 'P2', 'isDeletable': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361} 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}] 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: assurance_issues_exists: 1170: Testing_creation 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [], 'page': {'limit': 50, 'offset': 1, 'count': 0, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}]} 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: create_assurance_issue: 1646: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: create_assurance_issue: 1647: Testing_creation 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}] 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: assurance_issues_exists: 1170: Testing_creation 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'rules': [{'type': 'syslog', 'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'durationInMinutes': 2}], 'isEnabled': True, 'priority': 'P2', 'isDeletable': True, 'isNotificationEnabled': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': True, 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'priority': 'P2', 'isDeletable': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361}] 
+
+01-20-2025 12:58:42 WARNING  AssuranceSettings: verify_diff_merged: 2036: {'is_enabled': True, 'is_notification_enabled': True, 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'priority': 'P2', 'isDeletable': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361} 
+
+01-20-2025 12:59:28 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}] 
+
+01-20-2025 12:59:28 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 12:59:28 WARNING  AssuranceSettings: assurance_issues_exists: 1170: Testing_creation 
+
+01-20-2025 12:59:28 WARNING  AssuranceSettings: assurance_issues_exists: 1184: <MagicMock name='_exec()' id='4575176240'> 
+
+01-20-2025 12:59:28 CRITICAL  AssuranceSettings: assurance_issues_exists: 1200: Failed to retrieve the assurance issue details - Response is not a dictionary 
+
+01-20-2025 13:46:43 ERROR  AssuranceSettings: main: 2222: The specified version '2.2.3.3' does not support the access point workflow feature.Supported version(s) start from '2.3.7.6' onwards. 
+
+01-20-2025 13:54:03 ERROR  AssuranceSettings: main: 2222: The specified version '2.2.3.3' does not support the assurance issue settings workflow feature.Supported version(s) start from '2.3.7.6' onwards. 
+
+01-20-2025 13:56:21 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 13:56:21 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 13:56:21 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 13:56:21 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'durationInMinutes': 3}], 'isEnabled': True, 'priority': 'P1', 'isDeletable': True, 'isNotificationEnabled': False, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 13:56:21 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': False, 'rules': [{'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'duration_in_minutes': 3}], 'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'priority': 'P1', 'isDeletable': True, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}] 
+
+01-20-2025 13:56:21 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'ippo'}]} 
+
+01-20-2025 13:56:21 WARNING  AssuranceSettings: create_assurance_issue: 1646: {'name': 'ippo'} 
+
+01-20-2025 13:56:21 WARNING  AssuranceSettings: create_assurance_issue: 1647: ippo 
+
+01-20-2025 13:56:21 WARNING  AssuranceSettings: update_user_defined_issue: 1735: Updation start 
+
+01-20-2025 13:56:21 WARNING  AssuranceSettings: update_user_defined_issue: 1751: [] 
+
+01-20-2025 13:56:36 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 13:56:36 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 13:56:36 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 13:56:36 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'durationInMinutes': 3}], 'isEnabled': True, 'priority': 'P1', 'isDeletable': True, 'isNotificationEnabled': False, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 13:56:36 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': False, 'rules': [{'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'duration_in_minutes': 3}], 'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'priority': 'P1', 'isDeletable': True, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}] 
+
+01-20-2025 13:56:36 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'ippo'}]} 
+
+01-20-2025 13:56:36 WARNING  AssuranceSettings: create_assurance_issue: 1646: {'name': 'ippo'} 
+
+01-20-2025 13:56:36 WARNING  AssuranceSettings: create_assurance_issue: 1647: ippo 
+
+01-20-2025 13:56:36 WARNING  AssuranceSettings: update_user_defined_issue: 1735: Updation start 
+
+01-20-2025 13:56:36 WARNING  AssuranceSettings: update_user_defined_issue: 1751: [] 
+
+01-20-2025 13:57:25 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 13:57:25 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 13:57:25 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 13:57:25 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'durationInMinutes': 3}], 'isEnabled': True, 'priority': 'P1', 'isDeletable': True, 'isNotificationEnabled': False, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 13:57:25 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': False, 'rules': [{'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'duration_in_minutes': 3}], 'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'priority': 'P1', 'isDeletable': True, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}] 
+
+01-20-2025 13:57:25 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'ippo'}]} 
+
+01-20-2025 13:57:59 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 13:57:59 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 13:57:59 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 13:57:59 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'durationInMinutes': 3}], 'isEnabled': True, 'priority': 'P1', 'isDeletable': True, 'isNotificationEnabled': False, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 13:57:59 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': False, 'rules': [{'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'duration_in_minutes': 3}], 'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'priority': 'P1', 'isDeletable': True, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}] 
+
+01-20-2025 13:57:59 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'ippo'}]} 
+
+01-20-2025 14:11:06 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 14:11:06 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 14:11:06 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 14:11:06 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'durationInMinutes': 3}], 'isEnabled': True, 'priority': 'P1', 'isDeletable': True, 'isNotificationEnabled': False, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 14:11:06 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': False, 'rules': [{'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'duration_in_minutes': 3}], 'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'priority': 'P1', 'isDeletable': True, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}] 
+
+01-20-2025 14:11:06 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'ippo'}]} 
+
+01-20-2025 14:11:53 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 14:11:53 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 14:11:53 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 14:11:53 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'durationInMinutes': 3}], 'isEnabled': True, 'priority': 'P1', 'isDeletable': True, 'isNotificationEnabled': False, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 14:11:53 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': False, 'rules': [{'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'duration_in_minutes': 3}], 'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'priority': 'P1', 'isDeletable': True, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}] 
+
+01-20-2025 14:11:53 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'ippo'}]} 
+
+01-20-2025 14:12:11 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 14:12:11 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 14:12:11 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 14:12:11 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'durationInMinutes': 3}], 'isEnabled': True, 'priority': 'P1', 'isDeletable': True, 'isNotificationEnabled': False, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 14:12:11 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': False, 'rules': [{'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'duration_in_minutes': 3}], 'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'priority': 'P1', 'isDeletable': True, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}] 
+
+01-20-2025 14:12:11 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'ippo'}]} 
+
+01-20-2025 14:44:00 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 14:44:00 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 14:44:00 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 14:44:00 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'durationInMinutes': 3}], 'isEnabled': True, 'priority': 'P1', 'isDeletable': True, 'isNotificationEnabled': False, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 14:44:00 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': False, 'rules': [{'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'duration_in_minutes': 3}], 'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'priority': 'P1', 'isDeletable': True, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}] 
+
+01-20-2025 14:44:00 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'ippo'}]} 
+
+01-20-2025 14:44:19 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 14:44:19 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 14:44:19 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 14:44:19 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'durationInMinutes': 3}], 'isEnabled': True, 'priority': 'P1', 'isDeletable': True, 'isNotificationEnabled': False, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 14:44:19 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': False, 'rules': [{'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'duration_in_minutes': 3}], 'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'priority': 'P1', 'isDeletable': True, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}] 
+
+01-20-2025 14:44:19 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'ippo'}]} 
+
+01-20-2025 14:44:44 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 14:44:44 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 14:44:44 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 14:44:44 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'durationInMinutes': 3}], 'isEnabled': True, 'priority': 'P1', 'isDeletable': True, 'isNotificationEnabled': False, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 14:44:44 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': False, 'rules': [{'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'duration_in_minutes': 3}], 'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'priority': 'P1', 'isDeletable': True, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}] 
+
+01-20-2025 14:44:44 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'ippo'}]} 
+
+01-20-2025 14:45:18 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 14:45:18 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 14:45:18 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 14:45:18 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'durationInMinutes': 3}], 'isEnabled': True, 'priority': 'P1', 'isDeletable': True, 'isNotificationEnabled': False, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 14:45:18 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': False, 'rules': [{'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'duration_in_minutes': 3}], 'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'priority': 'P1', 'isDeletable': True, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}] 
+
+01-20-2025 14:45:19 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'ippo'}]} 
+
+01-20-2025 14:45:19 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 14:45:19 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 14:45:19 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 14:45:19 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [], 'page': {'limit': 50, 'offset': 1, 'count': 0, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 14:45:52 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 14:45:52 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 14:45:52 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 14:45:52 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'rules': [{'type': 'syslog', 'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'durationInMinutes': 3}], 'isEnabled': True, 'priority': 'P1', 'isDeletable': True, 'isNotificationEnabled': False, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 14:45:52 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': False, 'rules': [{'severity': '4', 'facility': 'SW_MATM', 'mnemonic': 'MACFLAP_NOTIF', 'pattern': 'Host * be in vlan * is flapping between port * and port *', 'occurrences': 1, 'duration_in_minutes': 3}], 'id': '5ab993c8-d558-419d-a11b-8171461f2163', 'name': 'ippo', 'description': 'MACFLAP NOTIF', 'profileId': 'global', 'triggerId': '688049a3-d2c5-4416-b839-b96b3160b2c0', 'priority': 'P1', 'isDeletable': True, 'createdTime': 1737022144192, 'lastUpdatedTime': 1737022144192}] 
+
+01-20-2025 14:45:52 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'ippo'}]} 
+
+01-20-2025 14:45:52 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'ippo'}] 
+
+01-20-2025 14:45:52 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'ippo'} 
+
+01-20-2025 14:45:52 WARNING  AssuranceSettings: assurance_issues_exists: 1170: ippo 
+
+01-20-2025 14:45:52 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [], 'page': {'limit': 50, 'offset': 1, 'count': 0, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 14:46:05 ERROR  AssuranceSettings: main: 2223: The specified version '2.2.3.3' does not support the assurance issue settings workflow feature.Supported version(s) start from '2.3.7.6' onwards. 
+
+01-20-2025 14:46:44 WARNING  AssuranceSettings: get_want: 1011: {'name': 'Application Latency Issues', 'device_type': 'APPLICATION', 'issue_enabled': True} 
+
+01-20-2025 14:47:03 WARNING  AssuranceSettings: get_want: 1011: {'name': 'Application Latency Issues', 'device_type': 'APPLICATION', 'issue_enabled': True} 
+
+01-20-2025 14:47:49 WARNING  AssuranceSettings: get_want: 1011: {'name': 'Application Latency Issues', 'device_type': 'APPLICATION', 'issue_enabled': True} 
+
+01-20-2025 14:59:42 WARNING  AssuranceSettings: get_want: 1011: {'assurance_system_issue_details': {'name': 'Application Latency Issues', 'device_type': 'APPLICATION', 'issue_enabled': True}} 
+
+01-20-2025 15:03:11 WARNING  AssuranceSettings: get_want: 1011: {'assurance_system_issue_settings': [{'name': 'Application Latency Issues', 'device_type': 'APPLICATION', 'issue_enabled': True}]} 
+
+01-20-2025 15:03:11 WARNING  AssuranceSettings: update_system_issue: 1562: {'name': 'Application Latency Issues', 'device_type': 'APPLICATION', 'issue_enabled': True} 
+
+01-20-2025 15:04:24 WARNING  AssuranceSettings: get_want: 1011: {'assurance_system_issue_settings': [{'name': 'Application Latency Issues', 'device_type': 'APPLICATION', 'issue_enabled': True}]} 
+
+01-20-2025 15:04:24 WARNING  AssuranceSettings: update_system_issue: 1562: {'name': 'Application Latency Issues', 'device_type': 'APPLICATION', 'issue_enabled': True} 
+
+01-20-2025 15:05:28 WARNING  AssuranceSettings: get_want: 1011: {'assurance_system_issue_settings': [{'name': 'Application Latency Issues', 'device_type': 'APPLICATION', 'issue_enabled': True}]} 
+
+01-20-2025 15:06:29 WARNING  AssuranceSettings: get_want: 1011: {'assurance_system_issue_settings': [{'name': 'Application Latency Issues', 'device_type': 'APPLICATION', 'issue_enabled': True}]} 
+
+01-20-2025 15:06:54 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}] 
+
+01-20-2025 15:06:55 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 15:06:55 WARNING  AssuranceSettings: assurance_issues_exists: 1170: Testing_creation 
+
+01-20-2025 15:06:55 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [], 'page': {'limit': 50, 'offset': 1, 'count': 0, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 15:06:55 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}]} 
+
+01-20-2025 15:06:55 WARNING  AssuranceSettings: create_assurance_issue: 1645: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 15:06:55 WARNING  AssuranceSettings: create_assurance_issue: 1646: Testing_creation 
+
+01-20-2025 15:06:55 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1253: [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}] 
+
+01-20-2025 15:06:55 WARNING  AssuranceSettings: get_have_assurance_user_issue: 1256: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 15:06:55 WARNING  AssuranceSettings: assurance_issues_exists: 1170: Testing_creation 
+
+01-20-2025 15:06:55 WARNING  AssuranceSettings: assurance_issues_exists: 1184: {'response': [{'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'rules': [{'type': 'syslog', 'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'durationInMinutes': 2}], 'isEnabled': True, 'priority': 'P2', 'isDeletable': True, 'isNotificationEnabled': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361}], 'page': {'limit': 50, 'offset': 1, 'count': 1, 'sortBy': [{'name': 'name', 'order': 'asc'}]}, 'version': '1.0'} 
+
+01-20-2025 15:06:55 WARNING  AssuranceSettings: assurance_issues_exists: 1222: [{'is_enabled': True, 'is_notification_enabled': True, 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'priority': 'P2', 'isDeletable': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361}] 
+
+01-20-2025 15:06:55 WARNING  AssuranceSettings: verify_diff_merged: 2036: {'is_enabled': True, 'is_notification_enabled': True, 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'priority': 'P2', 'isDeletable': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361} 
+
+01-20-2025 16:02:32 WARNING  AssuranceSettings: get_want: 1011: {'assurance_system_issue_settings': [{'name': 'Application Latency Issues', 'device_type': 'APPLICATION', 'issue_enabled': True}]} 
+
+01-20-2025 16:10:36 WARNING  AssuranceSettings: get_want: 1011: {'assurance_system_issue_settings': [{'name': 'Application Latency Issues', 'device_type': 'APPLICATION', 'issue_enabled': True}]} 
+
+01-20-2025 16:10:36 ERROR  AssuranceSettings: get_system_issue_details: 1092: Failed to retrieve system issue details for device type 'APPLICATION':  
+
+01-20-2025 17:27:02 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:27:02 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'f0f79fd9-5952-4ce3-a46e-e79789d0fd51', 'name': 'radio_5_hung_trigger', 'displayName': 'No Activity on Radio (5 GHz)', 'description': 'No Activity on Radio (5 GHz)', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 60.0}, {'id': '0a19c187-085b-4696-a4b6-5b8cd9d55adc', 'name': 'radio_6_down_trigger', 'displayName': 'Radio Down (6 GHz)', 'description': '6 GHz Radio on the AP is down.', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False}, {'id': '27ead73a-c452-45a0-ab7b-a14234242f3f', 'name': 'radio_24_down_trigger', 'displayName': 'Radio Down (2.4 GHz)', 'description': '2.4 GHz Radio on the AP is down.', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False}, {'id': 'e3acac61-4dff-4113-929b-396827f8782f', 'name': 'ap_memory_threshold_trigger', 'displayName': 'AP Memory High Utilization', 'description': 'Memory Utilization of Access Points', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 40.0, 'lastModified': '1737114526743'}, {'id': 'c53f6d9b-534f-4c50-8a87-fba829eca7ba', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'RF Interference (6GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': True, 'thresholdValue': 35.0, 'lastModified': '1733742928247'}, {'id': 'db311ee8-63fe-4360-8ae1-039231b7d8c7', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'RF Noise (6GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'thresholdValue': -83.0, 'lastModified': '1733742928247'}, {'id': 'ed984368-d351-48ee-9ae1-a893883f0aa0', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'Poor RF Window (6 GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'thresholdValue': 30.0, 'lastModified': '1733742928247'}, {'id': 'deb3eea5-93e2-4ee9-9181-2781bfe7a7f8', 'name': 'radio_24_hung_trigger', 'displayName': 'No Activity on Radio (2.4 GHz)', 'description': 'No Activity on Radio (2.4 GHz)', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 60.0}, {'id': '38ff8d13-c5f6-4711-9b83-dd3ca5149a78', 'name': 'radio_util_trigger', 'displayName': 'Radio High Utilization', 'description': 'Radio channel utilization for APs', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'synchronizeToHealthThreshold': False, 'thresholdValue': 70.0}], 'version': '1.0', 'page': {'limit': 500, 'offset': 1, 'count': 22}} 
+
+01-20-2025 17:27:02 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:27:02 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P2', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372037537'}], 'version': '1.0', 'page': {'limit': 500, 'offset': 1, 'count': 22}} 
+
+01-20-2025 17:27:02 WARNING  AssuranceSettings: get_want: 1011: {'assurance_system_issue_settings': [{'name': 'AP Reboot Crash', 'device_type': 'UNIFIED_AP', 'synchronize_to_health_threshold': False, 'priority': 'P1', 'issue_enabled': True, 'threshold_value': '80'}]} 
+
+01-20-2025 17:27:02 WARNING  AssuranceSettings: update_system_issue: 1605: RESPONSE_UT 
+
+01-20-2025 17:27:02 WARNING  AssuranceSettings: update_system_issue: 1606: {'response': {'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372037537'}, 'version': '1.0'} 
+
+01-20-2025 17:27:02 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:27:02 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': '23f7e89c-1430-43b2-8694-ca52a52fd777', 'name': 'Application_Experience_Issues_trigger', 'displayName': 'Application Latency Issues', 'description': 'Business Relevant applications are experiencing network latencies higher than normal', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'APPLICATION', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'APPLICATION', 'synchronizeToHealthThreshold': False, 'lastModified': '1737099561077'}]} 
+
+01-20-2025 17:27:02 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:27:02 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372965890'} 
+
+01-20-2025 17:30:56 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:30:56 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'f0f79fd9-5952-4ce3-a46e-e79789d0fd51', 'name': 'radio_5_hung_trigger', 'displayName': 'No Activity on Radio (5 GHz)', 'description': 'No Activity on Radio (5 GHz)', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 60.0}, {'id': '0a19c187-085b-4696-a4b6-5b8cd9d55adc', 'name': 'radio_6_down_trigger', 'displayName': 'Radio Down (6 GHz)', 'description': '6 GHz Radio on the AP is down.', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False}, {'id': '27ead73a-c452-45a0-ab7b-a14234242f3f', 'name': 'radio_24_down_trigger', 'displayName': 'Radio Down (2.4 GHz)', 'description': '2.4 GHz Radio on the AP is down.', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False}, {'id': 'e3acac61-4dff-4113-929b-396827f8782f', 'name': 'ap_memory_threshold_trigger', 'displayName': 'AP Memory High Utilization', 'description': 'Memory Utilization of Access Points', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 40.0, 'lastModified': '1737114526743'}, {'id': 'c53f6d9b-534f-4c50-8a87-fba829eca7ba', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'RF Interference (6GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': True, 'thresholdValue': 35.0, 'lastModified': '1733742928247'}, {'id': 'db311ee8-63fe-4360-8ae1-039231b7d8c7', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'RF Noise (6GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'thresholdValue': -83.0, 'lastModified': '1733742928247'}, {'id': 'ed984368-d351-48ee-9ae1-a893883f0aa0', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'Poor RF Window (6 GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'thresholdValue': 30.0, 'lastModified': '1733742928247'}, {'id': 'deb3eea5-93e2-4ee9-9181-2781bfe7a7f8', 'name': 'radio_24_hung_trigger', 'displayName': 'No Activity on Radio (2.4 GHz)', 'description': 'No Activity on Radio (2.4 GHz)', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 60.0}, {'id': '38ff8d13-c5f6-4711-9b83-dd3ca5149a78', 'name': 'radio_util_trigger', 'displayName': 'Radio High Utilization', 'description': 'Radio channel utilization for APs', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'synchronizeToHealthThreshold': False, 'thresholdValue': 70.0}], 'version': '1.0', 'page': {'limit': 500, 'offset': 1, 'count': 22}} 
+
+01-20-2025 17:30:56 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:30:56 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P2', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372037537'}], 'version': '1.0', 'page': {'limit': 500, 'offset': 1, 'count': 22}} 
+
+01-20-2025 17:30:56 WARNING  AssuranceSettings: get_want: 1011: {'assurance_system_issue_settings': [{'name': 'AP Reboot Crash', 'device_type': 'UNIFIED_AP', 'synchronize_to_health_threshold': False, 'priority': 'P1', 'issue_enabled': True, 'threshold_value': '80'}]} 
+
+01-20-2025 17:30:56 WARNING  AssuranceSettings: update_system_issue: 1605: RESPONSE_UT 
+
+01-20-2025 17:30:56 WARNING  AssuranceSettings: update_system_issue: 1606: {'response': {'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372037537'}, 'version': '1.0'} 
+
+01-20-2025 17:30:56 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:30:56 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': '23f7e89c-1430-43b2-8694-ca52a52fd777', 'name': 'Application_Experience_Issues_trigger', 'displayName': 'Application Latency Issues', 'description': 'Business Relevant applications are experiencing network latencies higher than normal', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'APPLICATION', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'APPLICATION', 'synchronizeToHealthThreshold': False, 'lastModified': '1737099561077'}]} 
+
+01-20-2025 17:30:56 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:30:56 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372965890'}]} 
+
+01-20-2025 17:30:56 WARNING  AssuranceSettings: verify_diff_merged: 2063: {'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372965890'} 
+
+01-20-2025 17:31:15 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:31:15 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'f0f79fd9-5952-4ce3-a46e-e79789d0fd51', 'name': 'radio_5_hung_trigger', 'displayName': 'No Activity on Radio (5 GHz)', 'description': 'No Activity on Radio (5 GHz)', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 60.0}, {'id': '0a19c187-085b-4696-a4b6-5b8cd9d55adc', 'name': 'radio_6_down_trigger', 'displayName': 'Radio Down (6 GHz)', 'description': '6 GHz Radio on the AP is down.', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False}, {'id': '27ead73a-c452-45a0-ab7b-a14234242f3f', 'name': 'radio_24_down_trigger', 'displayName': 'Radio Down (2.4 GHz)', 'description': '2.4 GHz Radio on the AP is down.', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False}, {'id': 'e3acac61-4dff-4113-929b-396827f8782f', 'name': 'ap_memory_threshold_trigger', 'displayName': 'AP Memory High Utilization', 'description': 'Memory Utilization of Access Points', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 40.0, 'lastModified': '1737114526743'}, {'id': 'c53f6d9b-534f-4c50-8a87-fba829eca7ba', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'RF Interference (6GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': True, 'thresholdValue': 35.0, 'lastModified': '1733742928247'}, {'id': 'db311ee8-63fe-4360-8ae1-039231b7d8c7', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'RF Noise (6GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'thresholdValue': -83.0, 'lastModified': '1733742928247'}, {'id': 'ed984368-d351-48ee-9ae1-a893883f0aa0', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'Poor RF Window (6 GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'thresholdValue': 30.0, 'lastModified': '1733742928247'}, {'id': 'deb3eea5-93e2-4ee9-9181-2781bfe7a7f8', 'name': 'radio_24_hung_trigger', 'displayName': 'No Activity on Radio (2.4 GHz)', 'description': 'No Activity on Radio (2.4 GHz)', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 60.0}, {'id': '38ff8d13-c5f6-4711-9b83-dd3ca5149a78', 'name': 'radio_util_trigger', 'displayName': 'Radio High Utilization', 'description': 'Radio channel utilization for APs', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'synchronizeToHealthThreshold': False, 'thresholdValue': 70.0}], 'version': '1.0', 'page': {'limit': 500, 'offset': 1, 'count': 22}} 
+
+01-20-2025 17:31:15 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:31:15 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P2', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372037537'}], 'version': '1.0', 'page': {'limit': 500, 'offset': 1, 'count': 22}} 
+
+01-20-2025 17:31:15 WARNING  AssuranceSettings: get_want: 1011: {'assurance_system_issue_settings': [{'name': 'AP Reboot Crash', 'device_type': 'UNIFIED_AP', 'synchronize_to_health_threshold': False, 'priority': 'P1', 'issue_enabled': True, 'threshold_value': '80'}]} 
+
+01-20-2025 17:31:15 WARNING  AssuranceSettings: update_system_issue: 1605: RESPONSE_UT 
+
+01-20-2025 17:31:15 WARNING  AssuranceSettings: update_system_issue: 1606: {'response': {'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372037537'}, 'version': '1.0'} 
+
+01-20-2025 17:31:15 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:31:15 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': '23f7e89c-1430-43b2-8694-ca52a52fd777', 'name': 'Application_Experience_Issues_trigger', 'displayName': 'Application Latency Issues', 'description': 'Business Relevant applications are experiencing network latencies higher than normal', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'APPLICATION', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'APPLICATION', 'synchronizeToHealthThreshold': False, 'lastModified': '1737099561077'}]} 
+
+01-20-2025 17:31:15 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:31:15 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372965890'}]} 
+
+01-20-2025 17:31:15 WARNING  AssuranceSettings: verify_diff_merged: 2063: {'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372965890'} 
+
+01-20-2025 17:31:51 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:31:51 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'f0f79fd9-5952-4ce3-a46e-e79789d0fd51', 'name': 'radio_5_hung_trigger', 'displayName': 'No Activity on Radio (5 GHz)', 'description': 'No Activity on Radio (5 GHz)', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 60.0}, {'id': '0a19c187-085b-4696-a4b6-5b8cd9d55adc', 'name': 'radio_6_down_trigger', 'displayName': 'Radio Down (6 GHz)', 'description': '6 GHz Radio on the AP is down.', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False}, {'id': '27ead73a-c452-45a0-ab7b-a14234242f3f', 'name': 'radio_24_down_trigger', 'displayName': 'Radio Down (2.4 GHz)', 'description': '2.4 GHz Radio on the AP is down.', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False}, {'id': 'e3acac61-4dff-4113-929b-396827f8782f', 'name': 'ap_memory_threshold_trigger', 'displayName': 'AP Memory High Utilization', 'description': 'Memory Utilization of Access Points', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 40.0, 'lastModified': '1737114526743'}, {'id': 'c53f6d9b-534f-4c50-8a87-fba829eca7ba', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'RF Interference (6GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': True, 'thresholdValue': 35.0, 'lastModified': '1733742928247'}, {'id': 'db311ee8-63fe-4360-8ae1-039231b7d8c7', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'RF Noise (6GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'thresholdValue': -83.0, 'lastModified': '1733742928247'}, {'id': 'ed984368-d351-48ee-9ae1-a893883f0aa0', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'Poor RF Window (6 GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'thresholdValue': 30.0, 'lastModified': '1733742928247'}, {'id': 'deb3eea5-93e2-4ee9-9181-2781bfe7a7f8', 'name': 'radio_24_hung_trigger', 'displayName': 'No Activity on Radio (2.4 GHz)', 'description': 'No Activity on Radio (2.4 GHz)', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 60.0}, {'id': '38ff8d13-c5f6-4711-9b83-dd3ca5149a78', 'name': 'radio_util_trigger', 'displayName': 'Radio High Utilization', 'description': 'Radio channel utilization for APs', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'synchronizeToHealthThreshold': False, 'thresholdValue': 70.0}], 'version': '1.0', 'page': {'limit': 500, 'offset': 1, 'count': 22}} 
+
+01-20-2025 17:31:52 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:31:52 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P2', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372037537'}], 'version': '1.0', 'page': {'limit': 500, 'offset': 1, 'count': 22}} 
+
+01-20-2025 17:31:52 WARNING  AssuranceSettings: get_want: 1011: {'assurance_system_issue_settings': [{'name': 'AP Reboot Crash', 'device_type': 'UNIFIED_AP', 'synchronize_to_health_threshold': False, 'priority': 'P1', 'issue_enabled': True, 'threshold_value': '80'}]} 
+
+01-20-2025 17:31:52 WARNING  AssuranceSettings: update_system_issue: 1605: RESPONSE_UT 
+
+01-20-2025 17:31:52 WARNING  AssuranceSettings: update_system_issue: 1606: {'response': {'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372037537'}, 'version': '1.0'} 
+
+01-20-2025 17:31:52 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:31:52 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': '23f7e89c-1430-43b2-8694-ca52a52fd777', 'name': 'Application_Experience_Issues_trigger', 'displayName': 'Application Latency Issues', 'description': 'Business Relevant applications are experiencing network latencies higher than normal', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'APPLICATION', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'APPLICATION', 'synchronizeToHealthThreshold': False, 'lastModified': '1737099561077'}]} 
+
+01-20-2025 17:31:52 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:31:52 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372965890'}]} 
+
+01-20-2025 17:31:52 WARNING  AssuranceSettings: verify_diff_merged: 2063: {'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372965890'} 
+
+01-20-2025 17:32:11 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:32:11 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'f0f79fd9-5952-4ce3-a46e-e79789d0fd51', 'name': 'radio_5_hung_trigger', 'displayName': 'No Activity on Radio (5 GHz)', 'description': 'No Activity on Radio (5 GHz)', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 60.0}, {'id': '0a19c187-085b-4696-a4b6-5b8cd9d55adc', 'name': 'radio_6_down_trigger', 'displayName': 'Radio Down (6 GHz)', 'description': '6 GHz Radio on the AP is down.', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False}, {'id': '27ead73a-c452-45a0-ab7b-a14234242f3f', 'name': 'radio_24_down_trigger', 'displayName': 'Radio Down (2.4 GHz)', 'description': '2.4 GHz Radio on the AP is down.', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False}, {'id': 'e3acac61-4dff-4113-929b-396827f8782f', 'name': 'ap_memory_threshold_trigger', 'displayName': 'AP Memory High Utilization', 'description': 'Memory Utilization of Access Points', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 40.0, 'lastModified': '1737114526743'}, {'id': 'c53f6d9b-534f-4c50-8a87-fba829eca7ba', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'RF Interference (6GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': True, 'thresholdValue': 35.0, 'lastModified': '1733742928247'}, {'id': 'db311ee8-63fe-4360-8ae1-039231b7d8c7', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'RF Noise (6GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'thresholdValue': -83.0, 'lastModified': '1733742928247'}, {'id': 'ed984368-d351-48ee-9ae1-a893883f0aa0', 'name': 'radio_6_poor_rf_trigger', 'displayName': 'Radio Poor RF (6 GHz)', 'description': 'Poor RF Window (6 GHz)', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'thresholdValue': 30.0, 'lastModified': '1733742928247'}, {'id': 'deb3eea5-93e2-4ee9-9181-2781bfe7a7f8', 'name': 'radio_24_hung_trigger', 'displayName': 'No Activity on Radio (2.4 GHz)', 'description': 'No Activity on Radio (2.4 GHz)', 'priority': 'P2', 'defaultPriority': 'P2', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'UTILIZATION', 'synchronizeToHealthThreshold': False, 'thresholdValue': 60.0}, {'id': '38ff8d13-c5f6-4711-9b83-dd3ca5149a78', 'name': 'radio_util_trigger', 'displayName': 'Radio High Utilization', 'description': 'Radio channel utilization for APs', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'synchronizeToHealthThreshold': False, 'thresholdValue': 70.0}], 'version': '1.0', 'page': {'limit': 500, 'offset': 1, 'count': 22}} 
+
+01-20-2025 17:32:11 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:32:11 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P2', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372037537'}], 'version': '1.0', 'page': {'limit': 500, 'offset': 1, 'count': 22}} 
+
+01-20-2025 17:32:11 WARNING  AssuranceSettings: get_want: 1011: {'assurance_system_issue_settings': [{'name': 'AP Reboot Crash', 'device_type': 'UNIFIED_AP', 'synchronize_to_health_threshold': False, 'priority': 'P1', 'issue_enabled': True, 'threshold_value': '80'}]} 
+
+01-20-2025 17:32:11 WARNING  AssuranceSettings: update_system_issue: 1605: RESPONSE_UT 
+
+01-20-2025 17:32:11 WARNING  AssuranceSettings: update_system_issue: 1606: {'response': {'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372037537'}, 'version': '1.0'} 
+
+01-20-2025 17:32:11 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:32:11 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': '23f7e89c-1430-43b2-8694-ca52a52fd777', 'name': 'Application_Experience_Issues_trigger', 'displayName': 'Application Latency Issues', 'description': 'Business Relevant applications are experiencing network latencies higher than normal', 'priority': 'P3', 'defaultPriority': 'P3', 'deviceType': 'APPLICATION', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'DEFAULT', 'categoryName': 'APPLICATION', 'synchronizeToHealthThreshold': False, 'lastModified': '1737099561077'}]} 
+
+01-20-2025 17:32:11 WARNING  AssuranceSettings: get_system_issue_details: 1083: response 
+
+01-20-2025 17:32:11 WARNING  AssuranceSettings: get_system_issue_details: 1084: {'response': [{'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372965890'}]} 
+
+01-20-2025 17:32:11 WARNING  AssuranceSettings: verify_diff_merged: 2063: {'id': 'c98cd36a-2c60-43a0-af66-a290a9844d6a', 'name': 'ap_reboot_crash_trigger', 'displayName': 'AP Reboot Crash', 'description': 'AP has rebooted due to a hardware or software crash.', 'priority': 'P1', 'defaultPriority': 'P3', 'deviceType': 'UNIFIED_AP', 'issueEnabled': True, 'profileId': 'global', 'definitionStatus': 'CUSTOM', 'categoryName': 'AVAILABILITY', 'synchronizeToHealthThreshold': False, 'lastModified': '1737372965890'} 
+
+01-20-2025 17:32:21 WARNING  AssuranceSettings: assurance_issues_exists: 1172: Testing_creation 
+
+01-20-2025 17:32:21 WARNING  AssuranceSettings: get_want: 1011: {'assurance_user_defined_issue_settings': [{'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': 2, 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}]} 
+
+01-20-2025 17:32:21 WARNING  AssuranceSettings: create_assurance_issue: 1645: {'name': 'Testing_creation', 'description': 'testing settings 1', 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True} 
+
+01-20-2025 17:32:21 WARNING  AssuranceSettings: create_assurance_issue: 1646: Testing_creation 
+
+01-20-2025 17:32:21 WARNING  AssuranceSettings: assurance_issues_exists: 1172: Testing_creation 
+
+01-20-2025 17:32:21 WARNING  AssuranceSettings: assurance_issues_exists: 1223: [{'is_enabled': True, 'is_notification_enabled': True, 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'priority': 'P2', 'isDeletable': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361}] 
+
+01-20-2025 17:32:21 WARNING  AssuranceSettings: verify_diff_merged: 2036: {'is_enabled': True, 'is_notification_enabled': True, 'rules': [{'severity': '2', 'facility': 'Alert', 'mnemonic': 'peer monitor event', 'pattern': 'issue test', 'occurrences': 1, 'duration_in_minutes': 2}], 'id': 'a44345cd-3dc8-4864-acfb-35708a5035d8', 'name': 'Testing_creation', 'description': 'testing settings 1', 'profileId': 'global', 'triggerId': 'e1afbab7-4b4a-42eb-a242-2e2138bab16d', 'priority': 'P2', 'isDeletable': True, 'createdTime': 1735889563361, 'lastUpdatedTime': 1735889563361} 
+
+01-20-2025 23:57:29 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'command_execution'}]} 
+
+01-20-2025 23:58:00 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'command_execution'}]} 
+
+01-21-2025 00:02:00 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'command_execution'}]} 
+
+01-21-2025 00:02:15 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'command_execution'}]} 
+
+01-21-2025 00:03:41 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'command_execution'}]} 
+
+01-21-2025 00:03:57 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'command_execution'}]} 
+
+01-21-2025 00:05:08 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'command_execution'}]} 
+
+01-21-2025 11:28:31 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 11:28:31 ERROR  AssuranceSettings: resolve_issue: 1438: An error occurred during resolve issue:  
+
+01-21-2025 11:28:31 ERROR  AssuranceSettings: set_operation_result: 1778: An error occurred during resolve issue:  
+
+01-21-2025 11:30:08 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 11:30:08 ERROR  AssuranceSettings: resolve_issue: 1438: An error occurred during resolve issue:  
+
+01-21-2025 11:30:08 ERROR  AssuranceSettings: set_operation_result: 1778: An error occurred during resolve issue:  
+
+01-21-2025 11:30:22 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 11:30:22 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 11:30:53 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 11:30:53 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 11:31:39 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 11:31:39 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 11:49:25 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 11:49:25 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 11:51:50 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 11:51:50 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 12:37:45 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Rangatestlink', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 12:38:17 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Rangatestlink', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 12:38:51 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Rangatestlink', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 12:39:33 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Rangatestlink', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 12:39:41 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Rangatestlink', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 12:53:52 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 12:53:52 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 13:11:12 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"', 'issue_process_type': 'ignore'}]} 
+
+01-21-2025 13:11:45 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"', 'issue_process_type': 'ignore'}]} 
+
+01-21-2025 13:19:26 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"', 'issue_process_type': 'ignore'}]} 
+
+01-21-2025 13:21:43 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"', 'issue_process_type': 'ignore'}]} 
+
+01-21-2025 13:22:19 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"', 'issue_process_type': 'ignore'}]} 
+
+01-21-2025 13:32:06 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"', 'issue_process_type': 'ignore'}]} 
+
+01-21-2025 13:32:16 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"', 'issue_process_type': 'ignore'}]} 
+
+01-21-2025 13:33:31 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"', 'issue_process_type': 'ignore'}]} 
+
+01-21-2025 13:34:07 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"', 'issue_process_type': 'ignore'}]} 
+
+01-21-2025 13:34:31 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"', 'issue_process_type': 'ignore'}]} 
+
+01-21-2025 13:35:07 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Excessive time lag between Cisco Catalyst Center and device "DC-T-9300"', 'issue_process_type': 'ignore'}]} 
+
+01-21-2025 13:35:33 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 13:35:33 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 13:42:44 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 13:42:44 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 13:43:58 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 13:43:58 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 13:44:16 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 13:44:16 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 13:48:26 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 13:48:26 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 13:48:38 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 13:48:38 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 13:48:49 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 13:48:49 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 13:50:17 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 13:50:17 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 13:54:55 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 13:54:55 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 13:58:42 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 13:58:42 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 13:59:45 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 13:59:45 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:00:41 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:00:41 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:01:23 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:01:23 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:07:03 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:07:03 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:07:22 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:07:22 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:10:42 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:10:42 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:10:58 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:10:58 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:18:48 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:18:48 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:19:30 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:19:30 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:31:33 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:31:33 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:32:18 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:32:18 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:35:03 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:35:03 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:37:19 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Rangatestlink', 'issue_process_type': 'resolution', 'start_datetime': '2024-12-11 16:00:00', 'end_datetime': '2024-12-11 18:30:00'}]} 
+
+01-21-2025 14:37:19 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'Rangatestlink', 'issue_process_type': 'resolution', 'start_datetime': '2024-12-11 16:00:00', 'end_datetime': '2024-12-11 18:30:00'} 
+
+01-21-2025 14:37:39 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'Rangatestlink', 'issue_process_type': 'resolution', 'start_datetime': '2024-12-11 16:00:00', 'end_datetime': '2024-12-11 18:30:00'}]} 
+
+01-21-2025 14:37:39 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'Rangatestlink', 'issue_process_type': 'resolution', 'start_datetime': '2024-12-11 16:00:00', 'end_datetime': '2024-12-11 18:30:00'} 
+
+01-21-2025 14:41:40 ERROR  AssuranceSettings: input_data_validation: 894: Invalid parameters in playbook config: '["Unable to validate Start date time, end date time. time data '2024-12-41 16:00:00' does not match format '%Y-%m-%d %H:%M:%S'"]'  
+
+01-21-2025 14:41:40 ERROR  AssuranceSettings: set_operation_result: 1778: Invalid parameters in playbook config: '["Unable to validate Start date time, end date time. time data '2024-12-41 16:00:00' does not match format '%Y-%m-%d %H:%M:%S'"]'  
+
+01-21-2025 14:41:49 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:41:49 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:42:22 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:42:23 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:42:44 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:42:44 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:44:50 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:44:50 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:45:32 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:45:32 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:45:55 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:45:55 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:48:55 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:48:55 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:50:20 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:50:20 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:52:02 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:52:02 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+
+01-21-2025 14:53:00 WARNING  AssuranceSettings: get_want: 1011: {'assurance_issue': [{'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}]} 
+
+01-21-2025 14:53:00 ERROR  AssuranceSettings: get_issue_ids_for_names: 1401: No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'} 
+

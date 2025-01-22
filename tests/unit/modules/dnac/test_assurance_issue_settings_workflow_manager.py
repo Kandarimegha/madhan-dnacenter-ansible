@@ -17,12 +17,12 @@ from __future__ import absolute_import, division, print_function
 
 __metaclass__ = type
 from unittest.mock import patch
-from ansible_collections.cisco.dnac.plugins.modules import assurance_settings_workflow_manager
+from ansible_collections.cisco.dnac.plugins.modules import assurance_issue_settings_workflow_manager
 from .dnac_module import TestDnacModule, set_module_args, loadPlaybookData
 
 class TestDnacAssuranceSettings(TestDnacModule):
-    module = assurance_settings_workflow_manager
-    test_data = loadPlaybookData("assurance_settings_workflow_manager")
+    module = assurance_issue_settings_workflow_manager
+    test_data = loadPlaybookData("assurance_issue_settings_workflow_manager")
     playbook_config_updation= test_data.get("playbook_config_updation")
     playbook_config_creation = test_data.get("playbook_config_creation")
     playbook_config_deletion = test_data.get("playbook_config_deletion")
@@ -103,8 +103,6 @@ class TestDnacAssuranceSettings(TestDnacModule):
         if "No_data_found" in self._testMethodName:
             self.run_dnac_exec.side_effect = [
                 self.test_data.get("get_issue_ids_No_data_found"),
-                # self.test_data.get("command_execution"),
-                # self.test_data.get("get_business_api_execution_details")
             ]
 
         if "resolution" in self._testMethodName:
@@ -117,20 +115,15 @@ class TestDnacAssuranceSettings(TestDnacModule):
             self.run_dnac_exec.side_effect = [
                 self.test_data.get("get_issue_ids_resolution"),
                 self.test_data.get("Issue_ignore_response"),
-                # self.test_data.get("get_business_api_execution_details")
             ]
 
         if "invalid_time_format" in self._testMethodName:
             self.run_dnac_exec.side_effect = [
                 self.test_data.get("get_issue_ids_resolution"),
-                # self.test_data.get("Issue_ignore_response"),
-                # self.test_data.get("get_business_api_execution_details")
             ]
 
 
-
-
-    def test_assurance_settings_workflow_manager_updation(self):
+    def test_assurance_issue_settings_workflow_manager_updation(self):
         """
         Test case for healthscore settings workflow manager when creating a device credential.
 
@@ -157,7 +150,7 @@ class TestDnacAssuranceSettings(TestDnacModule):
               'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True, 'prev_name': 'test_seema_1'}}
         )
 
-    def test_assurance_settings_workflow_manager_creation(self):
+    def test_assurance_issue_settings_workflow_manager_creation(self):
         """
         Test case for healthscore settings workflow manager when creating a device credential.
 
@@ -184,7 +177,7 @@ class TestDnacAssuranceSettings(TestDnacModule):
             'occurrences': 1, 'duration_in_minutes': 2}], 'is_enabled': True, 'priority': 'P2', 'is_notification_enabled': True}}
         )
 
-    def test_assurance_settings_workflow_manager_deletion(self):
+    def test_assurance_issue_settings_workflow_manager_deletion(self):
         """
         Test case for assurance issue settings workflow manager when creating a device credential.
 
@@ -209,7 +202,7 @@ class TestDnacAssuranceSettings(TestDnacModule):
             {'ippo': 'Assurance user issue deleted successfully'}
         )
 
-    def test_assurance_settings_workflow_manager_update_system_issue(self):
+    def test_assurance_issue_settings_workflow_manager_update_system_issue(self):
         """
         Test case for assurance issue settings workflow manager when creating a device credential.
 
@@ -234,7 +227,7 @@ class TestDnacAssuranceSettings(TestDnacModule):
            {'AP Reboot Crash': 'System issue Updated Successfully'}
         )
 
-    def test_assurance_settings_workflow_manager_command_execution(self):
+    def test_assurance_issue_settings_workflow_manager_command_execution(self):
             """
             Test case for assurance issue settings workflow manager when creating a device credential.
 
@@ -261,7 +254,7 @@ class TestDnacAssuranceSettings(TestDnacModule):
             [{'issue_name': 'jan8_1', 'issue_process_type': 'command_execution'}]
             )
 
-    def test_assurance_settings_workflow_manager_No_data_found(self):
+    def test_assurance_issue_settings_workflow_manager_No_data_found(self):
             """
             Test case for assurance issue settings workflow manager when creating a device credential.
 
@@ -288,7 +281,7 @@ class TestDnacAssuranceSettings(TestDnacModule):
                 "No data received for the issue: {'issue_name': 'jan8_1', 'issue_process_type': 'resolution'}"
             )
 
-    def test_assurance_settings_workflow_manager_resolution(self):
+    def test_assurance_issue_settings_workflow_manager_resolution(self):
                 """
                 Test case for assurance issue settings workflow manager when creating a device credential.
 
@@ -315,7 +308,7 @@ class TestDnacAssuranceSettings(TestDnacModule):
                     "Issue resolution verified successfully for '[{'issue_name': 'Rangatestlink', 'issue_process_type': 'resolution'}]'."
                 )
 
-    def test_assurance_settings_workflow_manager_ignore(self):
+    def test_assurance_issue_settings_workflow_manager_ignore(self):
                 """
                 Test case for assurance issue settings workflow manager when creating a device credential.
 
@@ -346,7 +339,7 @@ class TestDnacAssuranceSettings(TestDnacModule):
                                               [{'successfulIssueIds': ['dd932cc9-e773-4d4e-8894-e9c1cae8847']}]}}
                 )
 
-    def test_assurance_settings_workflow_manager_invalid_severity(self):
+    def test_assurance_issue_settings_workflow_manager_invalid_severity(self):
         """
         Test case for healthscore settings workflow manager when creating a device credential.
 
@@ -367,7 +360,7 @@ class TestDnacAssuranceSettings(TestDnacModule):
         result = self.execute_module(changed= False, failed=True)
         self.assertIn("Invalid parameters in playbook config", result['response'])
 
-    def test_assurance_settings_workflow_manager_invalid_duration(self):
+    def test_assurance_issue_settings_workflow_manager_invalid_duration(self):
         """
         Test case for healthscore settings workflow manager when creating a device credential.
 
@@ -388,7 +381,7 @@ class TestDnacAssuranceSettings(TestDnacModule):
         result = self.execute_module(changed= False, failed=True)
         self.assertIn("Invalid parameters in playbook config", result['response'])
 
-    def test_assurance_settings_workflow_manager_invalid_priority(self):
+    def test_assurance_issue_settings_workflow_manager_invalid_priority(self):
         """
         Test case for healthscore settings workflow manager when creating a device credential.
 
@@ -409,7 +402,7 @@ class TestDnacAssuranceSettings(TestDnacModule):
         result = self.execute_module(changed= False, failed=True)
         self.assertIn("Invalid parameters in playbook config", result['response'])
 
-    def test_assurance_settings_workflow_manager_invalid_time_format(self):
+    def test_assurance_issue_settings_workflow_manager_invalid_time_format(self):
         """
         Test case for healthscore settings workflow manager when creating a device credential.
 

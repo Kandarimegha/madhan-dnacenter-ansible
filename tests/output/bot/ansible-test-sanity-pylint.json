@@ -3,7 +3,7 @@
     "results": [
         {
             "message": "The test `ansible-test sanity --test pylint` [[explain](https://docs.ansible.com/ansible-core/2.15/dev_guide/testing/sanity/pylint.html)] failed with 1 error:", 
-            "output": "plugins/module_utils/dnac.py:2175:8: ansible-bad-function: Call module.log or module.debug instead of builtins.print"
+            "output": "plugins/modules/assurance_issue_settings_workflow_manager.py:1872:54: trailing-whitespace: Trailing whitespace"
         }
     ], 
     "verified": false

@@ -3,7 +3,7 @@
     "results": [
         {
             "message": "The test `ansible-test sanity --test pep8` [[explain](https://docs.ansible.com/ansible-core/2.15/dev_guide/testing/sanity/pep8.html)] failed with 1 error:", 
-            "output": "plugins/modules/device_credential_workflow_manager.py:759:1: W293: blank line contains whitespace"
+            "output": "plugins/modules/assurance_issue_settings_workflow_manager.py:2216:29: E127: continuation line over-indented for visual indent"
         }
     ], 
     "verified": false

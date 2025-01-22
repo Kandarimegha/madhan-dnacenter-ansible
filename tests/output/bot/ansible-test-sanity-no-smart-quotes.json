@@ -1,0 +1,10 @@
+{
+    "docs": "https://docs.ansible.com/ansible-core/2.15/dev_guide/testing/sanity/no-smart-quotes.html", 
+    "results": [
+        {
+            "message": "The test `ansible-test sanity --test no-smart-quotes` [[explain](https://docs.ansible.com/ansible-core/2.15/dev_guide/testing/sanity/no-smart-quotes.html)] failed with 1 error:", 
+            "output": "plugins/modules/assurance_issue_settings_workflow_manager.py:287:19: use ASCII quotes `'` and `\"` instead of Unicode quotes"
+        }
+    ], 
+    "verified": false
+}
