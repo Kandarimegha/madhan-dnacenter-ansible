@@ -1,0 +1,42 @@
+---
+delete_issue:
+  - assurance_user_defined_issue_settings:
+    - name: ippo
+
+create_user_issue:
+  - assurance_user_defined_issue_settings:
+      - name: ippo
+        description: testing settings 1
+        rules:
+          - severity: 1
+            facility: redundancy
+            mnemonic: peer monitor event
+            pattern: issue test
+            occurrences: 4
+            duration_in_minutes: 6
+        is_enabled: true
+        priority: P1
+        is_notification_enabled: false
+
+update_user_issue:
+  - assurance_user_defined_issue_settings:
+      - name: ippo
+        description: testing settings 1
+        rules:
+          - severity: 2
+            facility: redundancy
+            mnemonic: peer monitor event
+            pattern: issue test
+            occurrences: 4
+            duration_in_minutes: 6
+        is_enabled: true
+        priority: P2
+        is_notification_enabled: false
+
+update_system_issue:
+  - assurance_system_issue_settings:
+            - name: No Activity on Radio (6 GHz)
+              device_type: UNIFIED_AP
+              priority: "P2"
+              issue_enabled: false
+              threshold_value: 35
