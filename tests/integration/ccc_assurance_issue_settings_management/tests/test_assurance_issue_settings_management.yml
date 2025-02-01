@@ -20,13 +20,6 @@
         dnac_log_level: DEBUG
         config_verify: true
 
-  # - debug:
-  #     msg: "{{ vars_map.design_issue }}"
-  # - debug:
-  #     msg: "{{ vars_map.update_issue }}"
-  # - debug:
-  #     msg: "{{ vars_map.delete_issue }}"
-
 #############################################
 #                Clean Up                   #
 #############################################
@@ -52,17 +45,17 @@
     loop: "{{ vars_map.create_user_issue }}"
     register: result_create_issue
 
-  # - name: Debug item
-  #   debug:
-  #     var: item
-  #   loop: "{{ result_create_issue.results }}"
-  #   when: result_create_issue is defined
+  - name: Debug item
+    debug:
+      var: item.response
+    loop: "{{ result_create_issue.results }}"
+    when: result_create_issue is defined
 
-  - name: Assert area creation success for each issue
+  - name: Assert issue creation success for each issue
     assert:
       that:
         - item.changed == true
-        - "'created successfully' in item.msg"
+        - "'Created Successfully' in item.response[0].assurance_user_defined_issue_settings.msg.ippo"
     loop: "{{ result_create_issue.results }}"
     when: result_create_issue is defined
 
@@ -79,17 +72,17 @@
     loop: "{{ vars_map.update_user_issue }}"
     register: result_update_user_issue
 
-    # - name: Debug item
-    #   debug:
-    #     var: item
-    #   loop: "{{ result_update_user_issue.results }}"
-    #   when: result_update_user_issue is defined
+  - name: Debug item
+    debug:
+      var: item
+    loop: "{{ result_update_user_issue.results }}"
+    when: result_update_user_issue is defined
 
   - name: Assert user defined issue updation success
     assert:
       that:
         - item.changed == true
-        - "'updated Successfully' in item.response[0].globalPool.msg.Global_Pool4"
+        - "'updated Successfully' in item.response[0].assurance_user_defined_issue_settings.msg.ippo"
     loop: "{{ result_update_user_issue.results }}"
     when: result_update_user_issue is defined
 
@@ -102,102 +95,50 @@
       state: merged
       config:
           - "{{ item }}"
-    loop: "{{ vars_map.create_reserve_pools }}"
+    loop: "{{ vars_map.update_system_issue }}"
     register: result_update_system_issues
 
-    # - name: Debug item
-    #   debug:
-    #     var: item
-    #   loop: "{{ result_update_system_issues.results }}"
-    #   when: result_update_system_issues is defined
+  - name: Debug item
+    debug:
+      var: item
+    loop: "{{ result_update_system_issues.results }}"
+    when: result_update_system_issues is defined
 
   - name: Assert update system issue success
     assert:
       that:
         - item.changed == true
-        - "'system issues updated Successfully' in item.response[1].reservePool.msg.IP_Pool_4"
+        - "'System issue Updated Successfully' in item.response[1].assurance_system_issue_settings.msg['Router unreachable']"
     loop: "{{ result_update_system_issues.results }}"
     when: result_update_system_issues is defined
 
-# #####################################################
-#                  RESOLVE ISSUES                     #
-# #####################################################
-  # - name: resolve issue
-  #   cisco.dnac.assurance_issue_settings_workflow_manager:
-  #     <<: *dnac_login
-  #     state: merged
-  #     config:
-  #         - "{{ item }}"
-  #   loop: "{{ vars_map.network_server }}"
-  #   register: result_resolve_issues
 
-  #   # - name: Debug item
-  #   #   debug:
-  #   #     var: item
-  #   #   loop: "{{ result_resolve_issues.results }}"
-  #   #   when: result_resolve_issues is defined
+####################################################
+#            UPDATE SYSTEM DEFINED ISSUES          #
+####################################################
+  - name: update system issue
+    cisco.dnac.assurance_issue_settings_workflow_manager:
+      <<: *dnac_login
+      state: merged
+      config:
+          - "{{ item }}"
+    loop: "{{ vars_map.update_system_issue_again }}"
+    register: result_update_system_issues
 
-  # - name: Assert issue resolution success
-  #   assert:
-  #     that:
-  #       - item.changed == true
-  #       - "'Network Updated successfully' in item.response[2].network.msg['Global/USA-Test']"
-  #   loop: "{{ result_resolve_issues.results }}"
-  #   when: result_resolve_issues is defined
+  - name: Debug item
+    debug:
+      var: item
+    loop: "{{ result_update_system_issues.results }}"
+    when: result_update_system_issues is defined
 
-#############################################
-#             IGNORE ISSUES                 #
-#############################################
+  - name: Assert update system issue success
+    assert:
+      that:
+        - item.changed == true
+        - "'System issue Updated Successfully' in item.response[1].assurance_system_issue_settings.msg['Router unreachable']"
+    loop: "{{ result_update_system_issues.results }}"
+    when: result_update_system_issues is defined
 
-  # - name: ignore issues 
-  #   cisco.dnac.assurance_issue_settings_workflow_manager:
-  #     <<: *dnac_login
-  #     state: deleted
-  #     config:
-  #         - "{{ item }}"
-  #   loop: "{{ vars_map.ip_pool1 }}"
-  #   register: result_ignore_issue
-
-  # # - name: Debug item
-  # #   debug:
-  # #     var: item
-  # #   loop: "{{ result_ignore_issue.results }}"
-  # #   when: result_ignore_issue is defined
-
-  # - name: Assert issue ignorance success
-  #   assert:
-  #     that:
-  #       - item.changed == true
-  #       - "'Ip subpool reservation released successfully' in item.response[1].reservePool.msg.IP_Pool_4"
-  #   loop: "{{ result_ignore_issue.results }}"
-  #   when: result_ignore_issue is defined
-
-#############################################
-#           EXECUTE COMMAND                 #
-#############################################
-
-  # - name: Execute Command issue
-  #   cisco.dnac.assurance_issue_settings_workflow_manager:
-  #     <<: *dnac_login
-  #     state: deleted
-  #     config:
-  #         - "{{ item }}"
-  #   loop: "{{ vars_map.ip_pool2 }}"
-  #   register: result_execute_command
-
-  # # - name: Debug item
-  # #   debug:
-  # #     var: item
-  # #   loop: "{{ result_execute_command.results }}"
-  # #   when: result_execute_command is defined
-
-  # - name: Assert Execute command for each issue
-  #   assert:
-  #     that:
-  #       - item.changed == true
-  #       - "'execute command successfully' in item.response[0].globalPool.msg.Global_Pool4"
-  #   loop: "{{ result_execute_command.results }}"
-  #   when: result_execute_command is defined
 
 #############################################
 #                DELETE ISSUE               #
@@ -209,19 +150,19 @@
       state: deleted
       config:
           - "{{ item }}"
-    loop: "{{ vars_map.design_sites }}"
+    loop: "{{ vars_map.delete_issue }}"
     register: result_delete_issue
 
-  # - name: Debug item
-  #   debug:
-  #     var: item
-  #   loop: "{{ result_delete_issue.results }}"
-  #   when: result_delete_issue is defined
+  - name: Debug item
+    debug:
+      var: item
+    loop: "{{ result_delete_issue.results }}"
+    when: result_delete_issue is defined
 
   - name: Assert deletion success for each issue
     assert:
       that:
         - item.changed == true
-        - "'deleted successfully' in item.response"
+        - "'deleted successfully' in item.response[0].assurance_user_defined_issue_settings.msg.ippo"
     loop: "{{ result_delete_issue.results }}"
     when: result_delete_issue is defined

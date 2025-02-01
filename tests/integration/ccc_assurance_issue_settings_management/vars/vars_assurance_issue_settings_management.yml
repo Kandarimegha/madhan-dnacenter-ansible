@@ -35,8 +35,14 @@ update_user_issue:
 
 update_system_issue:
   - assurance_system_issue_settings:
-            - name: No Activity on Radio (6 GHz)
-              device_type: UNIFIED_AP
+            - name: Router unreachable
+              device_type: ROUTER
               priority: "P2"
-              issue_enabled: false
-              threshold_value: 35
+              issue_enabled: true
+
+update_system_issue_again:
+  - assurance_system_issue_settings:
+            - name: Router unreachable
+              device_type: ROUTER
+              priority: "P3"
+              issue_enabled: true

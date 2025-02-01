@@ -944,7 +944,6 @@ class AssuranceSettings(DnacBase):
                 ]
             elif get_object == "assurance_system_issue_settings":
                 obj_params = [
-                    ("displayName", "name"),
                     ("synchronizeToHealthThreshold", "synchronize_to_health_threshold"),
                     ("priority", "priority"),
                     ("issueEnabled", "issue_enabled"),
@@ -1044,9 +1043,13 @@ class AssuranceSettings(DnacBase):
                     params={'deviceType': device_type, 'issueEnabled': issue_enabled}
                 )
                 total_response.append(response.get("response"))
+            self.log("Response from returns_all_issue_trigger_definitions_for_given_filters API:'{0}'".format(self.pprint(total_response)), "DEBUG")
+
+            total_response = total_response[0] + total_response[1]
 
             if not total_response:
                 raise Exception("No system issue details found for device type '{0}'.".format(device_type))
+
             return total_response
 
         except Exception as e:
@@ -1087,7 +1090,7 @@ class AssuranceSettings(DnacBase):
                 return self
 
             system_issues = self.get_system_issue_details(device_type)
-            system_issues = system_issues[0] + system_issues[1]
+            # system_issues = system_issues[0] + system_issues[1]
 
             if not system_issues:
                 self.msg = "System issue details for '{0}' could not be retrieved.".format(name)
@@ -1097,8 +1100,7 @@ class AssuranceSettings(DnacBase):
 
             matching_issues = []
             for issue in system_issues:
-                # self.log(issue.get("displayName"))
-                if issue.get("displayName") == name or (description and issue.get("description") == description):
+                if issue.get("displayName") == name and (not description or issue.get("description") == description):
                     matching_issues.append(issue)
 
             if not matching_issues:
@@ -1185,6 +1187,7 @@ class AssuranceSettings(DnacBase):
 
             assurance_issue_details = get_dict_result(
                 all_assurance_issue_details, "user_issue", name)
+
             if assurance_issue_details:
                 self.log("Assurance issue found with name '{0}': {1}".format(
                     name, assurance_issue_details), "INFO")
@@ -1274,6 +1277,7 @@ class AssuranceSettings(DnacBase):
             issue name.
         """
         issue_keys = list(config_data.keys())
+
         if len(issue_keys) < 1:
             self.msg = "No aata available in the config input: {0}".format(str(config_data))
             self.log(self.msg, "ERROR")
@@ -1283,6 +1287,7 @@ class AssuranceSettings(DnacBase):
         avoid_keys = ("site_hierarchy", "start_datetime", "end_datetime",
                       "issue_name", "network_device_ip_address", "device_name",
                       "issue_process_type")
+
         for key, value in config_data.items():
             if value is not None and key not in avoid_keys:
                 mapped_key = self.keymap.get(key, key)
@@ -1515,6 +1520,7 @@ class AssuranceSettings(DnacBase):
         result_assurance_issue = self.result.get("response")[1].get("assurance_system_issue_settings")
         for issue_setting in assurance_system_issue_details:
             name = issue_setting.get("name")
+            description = issue_setting.get("description")
             if name is None:
                 self.msg = "Missing required parameter 'name' in assurance_system_issue_details"
                 self.status = "failed"
@@ -1528,7 +1534,7 @@ class AssuranceSettings(DnacBase):
                 return self
 
             for item in system_issue:
-                if item.get("displayName") == name:
+                if item.get("displayName") == name or (description and item.get("description") == description):
                     if not self.requires_update(item, issue_setting, self.system_issue_obj_params):
                         self.log(
                             "System defined issue '{0}' doesn't require an update".format(name), "INFO")
@@ -1539,11 +1545,11 @@ class AssuranceSettings(DnacBase):
 
             if updated_system_issues:
                 for issue in system_issue:
-                    if issue.get("displayName") == name:
+                    if issue.get("displayName") == name and (not description or issue.get("description") == description):
                         system_issue_params = {
                             "id": issue.get("id"),
                             "payload": {
-                                "name": name,
+                                # "name": name,
                                 "priority": issue_setting.get("priority"),
                                 "issueEnabled": issue_setting.get("issue_enabled"),
                                 "thresholdValue": issue_setting.get("threshold_value"),
@@ -1560,8 +1566,6 @@ class AssuranceSettings(DnacBase):
                                 op_modifies=True,
                                 params=system_issue_params,
                             )
-                            self.log("RESPONSE_UT")
-                            self.log(response)
                             response_data = response.get("response")
                             if response_data:
                                 self.log(f"Successfully updated system-defined issue '{name}' with details: {response_data}", "INFO")
@@ -1570,18 +1574,19 @@ class AssuranceSettings(DnacBase):
                                 self.log(f"Failed to update system issue '{name}'", "ERROR")
 
                         except Exception as e:
-                            self.msg = "Exception occurred while updating the system-defined issue '{0}':".format(str(name))
+                            self.msg = "Exception occurred while updating the system-defined issue '{0}':".format(str(e))
                             self.log(self.msg, "ERROR")
                             self.status = "failed"
                             return self
+
                         result_assurance_issue.get("response").update(
-                            {"system issue": issue_setting})
+                            {"system issue": system_issue_params})
                         result_assurance_issue.get("msg").update(
                             {response_data.get("displayName"): "System issue Updated Successfully"})
+                        self.msg = "Successfully updated system-defined issue details."
+                        self.status = "success"
+                        self.result['changed'] = True
 
-        self.msg = "Successfully updated system-defined issue details."
-        self.status = "success"
-        self.result['changed'] = True
         return self
 
     def create_assurance_issue(self, assurance_details):

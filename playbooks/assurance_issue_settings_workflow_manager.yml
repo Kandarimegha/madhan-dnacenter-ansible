@@ -23,8 +23,8 @@
         config_verify: true
         config:
           - assurance_issue:
-            - issue_name: "Excessive time lag between Cisco Catalyst Center and device \"DC-T-9300\""
-              issue_process_type: ignore
+              - issue_name: "Excessive time lag between Cisco Catalyst Center and device \"DC-T-9300\""
+                issue_process_type: ignore
           - assurance_user_defined_issue_settings:
               - name: ippo
                 description: testing settings 1
@@ -39,12 +39,11 @@
                 priority: P1
                 is_notification_enabled: false
                 prev_name: create4
-  
+
           - assurance_system_issue_settings:
-              - name: AP Reboot Crash 
+              - name: AP Reboot Crash
                 device_type: UNIFIED_AP
                 synchronize_to_health_threshold: false
                 priority: P1
-                issue_enabled: True
+                issue_enabled: true
                 threshold_value: "80"
-            
