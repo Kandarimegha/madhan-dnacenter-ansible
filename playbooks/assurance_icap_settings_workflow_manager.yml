@@ -1,5 +1,5 @@
 ---
-- name: Configure device credentials on Cisco Catalyst Center
+- name: Configure icap on Cisco Catalyst Center
   hosts: localhost
   vars_files:
     - "credentials.yml"
@@ -7,7 +7,7 @@
   gather_facts: no
   tasks:
     - name: assurance settings
-      cisco.dnac.assurance_healthscore_settings_workflow_manager:
+      cisco.dnac.assurance_icap_settings_workflow_manager:
         dnac_host: "{{dnac_host}}"
         dnac_username: "{{dnac_username}}"
         dnac_password: "{{dnac_password}}"
@@ -22,16 +22,19 @@
         state: merged
         config_verify: True
         config:
-          - assurance_healthscore:
-              - kpi_name: linkErrorThreshold
-                device_family: ROUTER
-                include_for_overall_health: true
-                threshold_value: 90
-                synchronize_to_issue_threshold: false
-              # - kpi_name: linkDiscardThreshold
-              #   device_family: WIRED_CLIENT
-              #   include_for_overall_health: true
-              #   threshold_value: 90
-              #   synchronize_to_issue_threshold: false
+          - assurance_icap_settings:
+                - capture_type: onboarding
+                  duration_in_mins: 30
+                  client_mac: client_mac_id  #required field
+                  wlc_id: wlc_id  #required field
+                  ap_id: ap_id  #required field
+                  slot:
+                    - 1
+                    - 2
+                  ota_band: 5GHz
+                  ota_channel: 36
+                  ota_channel_width: 20
+                  deploy: false
+                  generates_the_device_cli: false
 
             

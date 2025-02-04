@@ -3,345 +3,106 @@
 # Copyright (c) 2024, Cisco Systems
 # GNU General Public License v3.0+ (see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt)
 
-"""Ansible module to perform operations on global pool, reserve pool and network in Cisco Catalyst Center."""
+"""Ansible module to perform operations on Assurance ICAP settings in Cisco Catalyst Center."""
 from __future__ import absolute_import, division, print_function
 
 __metaclass__ = type
-__author__ = ['Muthu Rakesh, Madhan Sankaranarayanan, Megha Kandari']
+__author__ = ['Megha Kandari, Madhan Sankaranarayanan']
 
 DOCUMENTATION = r"""
 ---
-module: assurance_settings_workflow_manager
-short_description: Resource module for managing assurance settings and issue resolution in Cisco Catalyst Center
-description: This module allows the management of assurance settings and issues in Cisco DNA Center. 
-- It supports creating, updating, and deleting configurations for issue settings, health scores, ICAP settings, path trace, and other network assurance functionalities. 
-- This module interacts with Cisco DNA Center's Assurance settings to configure thresholds, rules, KPIs, and more for health score monitoring and issue resolution.
+module: assurance_icap_settings_workflow_manager
+short_description: Manage ICAP settings in Cisco Catalyst Center
+description:
+  - Configures ICAP settings for capturing client and network device information for onboarding and monitoring.
+  - This module interacts with Cisco DNA Center's Assurance settings to configure ICAP settings.
 version_added: '6.6.0'
 extends_documentation_fragment:
   - cisco.dnac.workflow_manager_params
-author: Madhan Sankaranarayanan (@madhansansel)
+author:
+  - Megha Kandari (@kandarimegha)
+  - Madhan Sankaranarayanan (@madhansansel)
 options:
   config_verify:
-    description: Set to `True` to enable configuration verification on Cisco DNA Center after applying the playbook config. This will ensure that the system validates the configuration state after the change is applied.
-    type: bool
-    default: False
+   description: Set to True to verify the Cisco Catalyst Center after applying the playbook config.
+   type: bool
+   default: False
   state:
-    description: Specifies the desired state for the configuration. If `merged`, the module will create or update the configuration, adding new settings or modifying existing ones. If `deleted`, it will remove the specified settings.
+    description:
+      - The state of Cisco Catalyst Center after module completion.
     type: str
     choices: ["merged", "deleted"]
     default: merged
- config:
-    description: A list of settings and parameters to be applied. It consists of different sub-configurations for managing assurance settings such as issue settings, health score, ICAP settings, path trace, issue resolution, and command execution.
+  config:
+    description:
+      - List of details of global pool, reserved pool, network being managed.
     type: list
     elements: dict
     required: true
     suboptions:
-      assurance_user_defined_issue_settings:
-        description: Manages the issue settings for assurance in Cisco DNA Center. You can configure the name, description, severity, priority, and rules that govern network issues.
-        type: list
-        elements: dict
-        suboptions:
-          - name:
-              description: The name of the issue setting, used for identification in the system. Required when creating a new setting or updating an existing one.
-              type: str
-              required: true
-          - description:
-              description: A text description for the issue. Helps to explain the nature of the issue for clarity in reports and dashboards.
-              type: str
-          - rules:
-              description: A set of rules that define the parameters for triggering the issue. It includes severity, facility, mnemonic, pattern, occurrences, and duration.
-              type: list
-              elements: dict
-              suboptions:
-                - severity:
-                    description: The severity level of the issue. Common values are 1 (Critical) to 5 (Informational).
-                    type: int
-                - facility:
-                    description: The facility type that the rule applies to. This could refer to a system component like redundancy or power.
-                    type: str
-                - mnemonic:
-                    description: A mnemonic value representing the issue, which could be a system-generated identifier or label for the issue.
-                    type: str b
-                - pattern:
-                    description: The pattern or regular expression used to detect the issue.
-                    type: str
-                - occurrences:
-                    description: The number of times the issue pattern must occur to trigger the issue.
-                    type: int
-                - duration_in_minutes:
-                    description: The duration, in minutes, for which the issue pattern must persist to be considered valid.
-                    type: int
-          - is_enabled:
-              description: Boolean value to enable or disable the issue setting.
-              type: bool
-          - priority:
-              description: Specifies the priority of the issue. Typically, values are "P1", "P2", "P3", etc.
-              type: str
-          - is_notification_enabled:
-              description: Boolean value to specify if notifications for this issue setting should be enabled.
-              type: bool
-          - prev_name:
-              description: The previous name of the issue setting (used when updating an existing issue setting).
-              type: str
-      assurance_healthscore:
-        description: Configures the health score settings for network devices. Defines thresholds for KPIs like CPU utilization, memory, etc.
-        type: list
-        elements: dict
-        suboptions:
-          - name:
-              description: The name of the Key Performance Indicator (KPI) to be monitored (e.g., cpu_utilization_threshold).
-              type: str
-          - device_family:
-              description: Specifies the device family to which the health score applies (e.g., switches, routers, hubs).
-              type: str
-          - include_for_overall_health:
-              description: Boolean value indicating whether this KPI should be included in the overall health score calculation.
-              type: bool
-          - threshold_value:
-              description: The threshold value that, when exceeded, will affect the health score.
-              type: int
-          - synchronize_to_issue_threshold:
-              description: Boolean value indicating whether the threshold should synchronize with issue resolution thresholds.
-              type: bool
       assurance_icap_settings:
-        description: Configures ICAP settings for capturing client and network device information for onboarding and monitoring.
+        description:
+          - Configures ICAP settings for capturing client and network device information for onboarding and monitoring.
         type: list
         elements: dict
         suboptions:
-          - captureType:
-              description: The type of ICAP capture to be performed (e.g., onboarding).
-              type: str
-          - durationInMins:
-              description: The duration of the ICAP capture session in minutes.
-              type: int
-          - clientMac:
-              description: The MAC address of the client device for which the capture is being performed.
-              type: str
-          - wlcId:
-              description: The ID of the Wireless LAN Controller (WLC) involved in the ICAP capture.
-              type: str
-          - apId:
-              description: The ID of the Access Point (AP) for the capture.
-              type: str
-          - slot:
-              description: List of slot numbers for the capture session.
-              type: list
-              elements: int
-          - otaBand:
-              description: The OTA band (e.g., 5GHz, 2.4GHz) for the capture.
-              type: str
-          - otaChannel:
-              description: The OTA channel (e.g., 36, 40) for the capture.
-              type: int
-          - otaChannelWidth:
-              description: The width of the OTA channel (e.g., 20MHz, 40MHz).
-              type: int
-      assurance_pathtrace:
-        description: Configures network path trace settings for monitoring the paths between source and destination IP addresses.
-        type: list
-        elements: dict
-        suboptions:
-          - sourceIP:
-              description: The source IP address for the path trace. This is a required field.
-              type: str
-          - destIP:
-              description: The destination IP address for the path trace. This is a required field.
-              type: str
-          - controlPath:
-              description: Boolean value to specify whether the path trace should include the control path (optional).
-              type: bool
-          - destPort:
-              description: The destination port for the path trace (optional).
-              type: str
-          - inclusions:
-              description: A list of optional inclusions for the path trace, such as QOS statistics or additional details.
-              type: list
-              elements: str
-          - periodicRefresh:
-              description: Boolean value to enable periodic refresh for the path trace.
-              type: bool
-          - protocol:
-              description: The protocol to use for the path trace, e.g., TCP, UDP (optional).
-              type: str
-          - sourcePort:
-              description: The source port for the path trace (optional).
-              type: str
-      assurance_issue_resolution:
-        description: List of issues to resolve in the assurance system. These issues are identified by their issue names.
-        type: list
-        elements: dict
-        suboptions:
-          - issue_name:
-              description: The name of the issue to be resolved.
-              type: str
-      assurance_ignore_issue:
-        description: List of issues to be ignored in the assurance system. These issues are identified by their issue names.
-        type: list
-        elements: dict
-        suboptions:
-          - issue_name:
-              description: The name of the issue to be ignored.
-              type: str
-      assurance_execute_suggested_commands:
-        description: Executes suggested commands for network devices as part of the issue resolution process.
-        type: list
-        elements: dict
-        suboptions:
-          - entity_type:
-              description: The type of entity (e.g., Networkdevice, Switch, etc.) for which the command is being executed.
-              type: str
-          - entity_value:
-              description: The value associated with the entity (e.g., device name or ID).
-              type: str      
+          capture_type:
+            description: The type of ICAP capture to be performed (e.g., onboarding).
+            type: str
+          duration_in_mins:
+            description: The duration of the ICAP capture session in minutes.
+            type: int
+          client_mac:
+            description: The MAC address of the client device for which the capture is being performed.
+            type: str
+          wlc_id:
+            description: The ID of the Wireless LAN Controller (WLC) involved in the ICAP capture.
+            type: str
+          ap_id:
+            description: The ID of the Access Point (AP) for the capture.
+            type: str
+          slot:
+            description: List of slot numbers for the capture session.
+            type: list
+            elements: int
+          ota_band:
+            description: The OTA band (e.g., 5GHz, 2.4GHz) for the capture.
+            type: str
+          ota_channel:
+            description: The OTA channel (e.g., 36, 40) for the capture.
+            type: int
+          ota_channel_width:
+            description: The width of the OTA channel (e.g., 20MHz, 40MHz).
+            type: int
+          deploy:
+            description: The deployment is required or not (e.g., True, False).
+            type: bool
+          generates_the_device_cli:
+            description: Generation of the device CLI is required or not (e.g., True, False).
+            type: bool
 requirements:
-- dnacentersdk >= 2.9.3
-- python >= 3.9
+  - dnacentersdk >= 2.9.3
+  - python >= 3.9
 notes:
- - SDK Method used are
-    issues.AssuranceSettings.get_all_the_custom_issue_definitions_based_on_the_given_filters,
-    issues.AssuranceSettings.creates_a_new_user_defined_issue_definitions,
-    issues.AssuranceSettings.deletes_an_existing_custom_issue_definition,
-    issues.AssuranceSettings.resolve_the_given_lists_of_issues,
-    issues.AssuranceSettings.ignore_the_given_list_of_issues,
-    issues.AssuranceSettings.execute_suggested_action_commands,
-    sensors.AssuranceSettings.get_icap_configuration_status_per_network_device,
+  - SDK Method used are
+    sensors.AssuranceSettings.get_i_cap_configuration_status_per_network_device,
     sensors.AssuranceSettings.get_device_deployment_status_count,
     sensors.AssuranceSettings.creates_an_icap_configuration_intent_for_preview_approve,
-    sensors.AssuranceSettings.discards_the_icap_configuration_intent_by_activity_id,
-    path_trace.AssuranceSettings.retrieves_all_previous_pathtraces_summary,
-    path_trace.AssuranceSettings.initiate_a_new_pathtrace,
-    path_trace.AssuranceSettings.delete_pathtrace_by_id,
-    devices.AssuranceSettings.get_all_healthscore_definitions_for_given_filters,
-    devices.AssuranceSettings.update_health_score_definitions
-
- - Paths used are
-    post /dna/intent/api/api/v1/customIssueDefinitions,
-    post/ dna/intent/api/v1/assuranceIssues/resolve
-    post/ dna/intent/api/v1/execute-suggested-actions-commands
-    post/ /dna/intent/api/v1/assuranceIssues/ignore
-    post /dna/intent/api/v1/healthScoreDefinitions/${id},
-    post /dna/intent/api/v1/flow-analysis/${flowAnalysisId},
-    post /dna/intent/api/v1/flow-analysis,
-    post /dna/intent/api/v1/healthScoreDefinitions/bulkUpdate
-    put /dna/intent/api/v1/systemIssueDefinitions/${id}
-    post /dna/intent/api/v1/assuranceIssues/resolve
-    delete /dna/intent/api/v1/flow-analysis/{flowAnalysisId}
-    delete /dna/intent/api/v1/customIssueDefinitions/{id}
-    delete /dna/intent/api/v1/flow-analysis/{flowAnalysisId}
-  """ 
+    sensors.AssuranceSettings.discards_the_icap_configuration_intent_by_activity_id
+    sensors.AssuranceSettings.deploys_the_i_cap_configuration_intent_by_activity_id_v1
+    sensors.AssuranceSettings.creates_ai_cap_configuration_workflow_for_i_capintent_to_remove_the_i_cap_configuration_on_the_device_v1
+    sensors.AssuranceSettings.retrieves_the_devices_clis_of_the_i_capintent_v1
+  - Paths used are
+    GET /dna/intent/api/v1/icapSettings/configurationModels/{previewActivityId}/networkDeviceStatusDetails
+    POST /dna/intent/api/v1/icapSettings/{previewActivityId}/networkDevices/{networkDeviceId}/config
+    POST /dna/intent/api/icapSettings/configurationModels
+    DELETE /dna/intent/api/v1/icapSettings/configurationModels/{previewActivityId}
+    GET /dna/intent/api/v1/icapSettings/configurationModels/{previewAcitivityId}/networkDevices/{networkDeviceId}/config
+    POST /dna/intent/api/v1/icapSettings/configurationModels/{previewActivityId}/deploy
+    GET /dna/intent/api/v1/icap
+"""
 
 EXAMPLES = r"""
----
-- hosts: dnac_servers
-  vars_files:
-    - credentials.yml
-  gather_facts: no
-  connection: local
-  tasks:
-    - name: Create issue settings
-      cisco.dnac.assurance_settings_workflow_manager:
-        dnac_host: "{{ dnac_host }}"
-        dnac_port: "{{ dnac_port }}"
-        dnac_username: "{{ dnac_username }}"
-        dnac_password: "{{ dnac_password }}"
-        dnac_verify: "{{ dnac_verify }}"
-        dnac_debug: "{{ dnac_debug }}"
-        dnac_version: "{{ dnac_version }}"
-        dnac_log: True
-        dnac_log_level: DEBUG
-        dnac_log_append: True
-        state: merged
-        config_verify: True
-        config:
-        - assurance_user_defined_issue_settings:
-          - name: “test"
-            description: “testing"
-            rules:
-              - severity: 5
-                facility: “redundancy"
-                mnemonic: “peer monitor event"
-                pattern: “issue test"
-                occurrences: 1
-                duration_in_minutes: 2
-            is_enabled: false
-            priority: “P1"
-            is_notification_enabled: false
-
-    - name: update issue settings
-      cisco.dnac.assurance_settings_workflow_manager:
-        dnac_host: "{{ dnac_host }}"
-        dnac_port: "{{ dnac_port }}"
-        dnac_username: "{{ dnac_username }}"
-        dnac_password: "{{ dnac_password }}"
-        dnac_verify: "{{ dnac_verify }}"
-        dnac_debug: "{{ dnac_debug }}"
-        dnac_version: "{{ dnac_version }}"
-        dnac_log: True
-        dnac_log_level: DEBUG
-        dnac_log_append: True
-        state: merged
-        config_verify: True
-        config:
-        - assurance_user_defined_issue_settings:
-          - prv_name: “test”
-            name: “test issue"
-            description: “testing"
-            rules:
-              - severity: 5
-                facility: “redundancy"
-                mnemonic: “peer monitor event"
-                pattern: “issue test"
-                occurrences: 1
-                duration_in_minutes: 2
-            is_enabled: false
-            priority: “P1"
-            is_notification_enabled: false
-
-    - name: Delete issue settings
-      cisco.dnac.assurance_settings_workflow_manager:
-        dnac_host: "{{ dnac_host }}"
-        dnac_port: "{{ dnac_port }}"
-        dnac_username: "{{ dnac_username }}"
-        dnac_password: "{{ dnac_password }}"
-        dnac_verify: "{{ dnac_verify }}"
-        dnac_debug: "{{ dnac_debug }}"
-        dnac_version: "{{ dnac_version }}"
-        dnac_log_level: DEBUG
-        dnac_log: True
-        state: deleted
-        config_verify: True
-        config:
-        - assurance_user_defined_issue_settings:
-          - name: “test"         
----
-- hosts: dnac_servers
-  vars_files:
-    - credentials.yml
-  gather_facts: no
-  connection: local
-  tasks:
-    - name: Update healthscore and threshold settings
-      cisco.dnac.assurance_health_threshold_workflow_manager:
-        dnac_host: "{{ dnac_host }}"
-        dnac_port: "{{ dnac_port }}"
-        dnac_username: "{{ dnac_username }}"
-        dnac_password: "{{ dnac_password }}"
-        dnac_verify: "{{ dnac_verify }}"
-        dnac_debug: "{{ dnac_debug }}"
-        dnac_version: "{{ dnac_version }}"
-        dnac_log: true
-        dnac_log_level: debug
-        dnac_log_append: true
-        state: merged
-        config_verify: true
-        config:
-        - assurance_healthscore:
-          - name: cpu_utilization_threshold #required field
-            device_family: switch and hubs #required field
-            include_for_overall_health: true
-            threshold_value: 90
-            synchronize_to_issue_threshold: false
-
 ---
   - hosts: dnac_servers
     vars_files:
@@ -350,7 +111,7 @@ EXAMPLES = r"""
     connection: local
     tasks:
       - name: Create icap settings
-        cisco.dnac.assurance_health_threshold_workflow_manager:
+        cisco.dnac.assurance_icap_settings_workflow_manager:
           dnac_host: "{{ dnac_host }}"
           dnac_port: "{{ dnac_port }}"
           dnac_username: "{{ dnac_username }}"
@@ -367,326 +128,50 @@ EXAMPLES = r"""
             - assurance_icap_settings:
                 - captureType: "onboarding"
                   durationInMins: 30
-                  clientMac: "client_mac_id" #required field
-                  wlcId: "wlc_id" #required field
-                  apId: "ap_id" #required field
+                  clientMac: client_mac_id  #required field
+                  wlcId: wlc_id  #required field
+                  apId: ap_id  #required field
                   slot:
                     - 1
                     - 2
-                  otaBand: "5GHz"
+                  otaBand: 5GHz
                   otaChannel: 36
                   otaChannelWidth: 20
-
----
-- hosts: dnac_servers
-  vars_files:
-    - credentials.yml
-  gather_facts: no
-  connection: local
-  tasks:
-    - name: Resolving Issues
-      cisco.dnac.assurance_settings_workflow_manager:
-        dnac_host: "{{ dnac_host }}"
-        dnac_port: "{{ dnac_port }}"
-        dnac_username: "{{ dnac_username }}"
-        dnac_password: "{{ dnac_password }}"
-        dnac_verify: "{{ dnac_verify }}"
-        dnac_debug: "{{ dnac_debug }}"
-        dnac_version: "{{ dnac_version }}"
-        dnac_log: true
-        dnac_log_level: debug
-        dnac_log_append: true
-        state: merged
-        config_verify: true
-        config:
-          - assurance_issue_resolution:
-              - issue_name: "issue_1" #required field
-              - issue_name: "issue_2"
-
-    - name: Ignoring issues
-      cisco.dnac.assurance_settings_workflow_manager:
-        dnac_host: "{{ dnac_host }}"
-        dnac_port: "{{ dnac_port }}"
-        dnac_username: "{{ dnac_username }}"
-        dnac_password: "{{ dnac_password }}"
-        dnac_verify: "{{ dnac_verify }}"
-        dnac_debug: "{{ dnac_debug }}"
-        dnac_version: "{{ dnac_version }}"
-        dnac_log: true
-        dnac_log_level: debug
-        dnac_log_append: true        
-        state: merged
-        config_verify: true
-        config:
-          - assurance_ignore_issue:
-               - issue_name: "issue_1" #required field
-               - issue_name: "issue_2"
-
-    - name: Execute suggested commands
-      cisco.dnac.assurance_settings_workflow_manager:
-        dnac_host: "{{ dnac_host }}"
-        dnac_port: "{{ dnac_port }}"
-        dnac_username: "{{ dnac_username }}"
-        dnac_password: "{{ dnac_password }}"
-        dnac_verify: "{{ dnac_verify }}"
-        dnac_debug: "{{ dnac_debug }}"
-        dnac_version: "{{ dnac_version }}"
-        dnac_log: true
-        dnac_log_level: debug
-        dnac_log_append: true
-        state: merged
-        config_verify: true
-        config:
-          - assurance_execute_suggested_commands:
-              - entity_type: "string" #required field
-                entity_value: "Networkdevice" #required field         
-
-- hosts: dnac_servers
-  vars_files:
-    - credentials.yml
-  gather_facts: no
-  connection: local
-  tasks:
-    - name: Create path trace
-      cisco.dnac.assurance_settings_workflow_manager:
-        dnac_host: "{{ dnac_host }}"
-        dnac_port: "{{ dnac_port }}"
-        dnac_username: "{{ dnac_username }}"
-        dnac_password: "{{ dnac_password }}"
-        dnac_verify: "{{ dnac_verify }}"
-        dnac_debug: "{{ dnac_debug }}"
-        dnac_version: "{{ dnac_version }}"
-        dnac_log: true
-        dnac_log_level: DEBUG
-        dnac_log_append: true
-        state: merged
-        config_verify: true
-        config:
-        - assurance_pathtrace:
-          sourceIP: "204.1.2.4" #required field
-          destIP: "204.192.6.200" #required field
-          controlPath: false #optional field
-          destPort: "80"
-          inclusions: 
-            - "QOS-STATS"
-          periodicRefresh: true
-          protocol: "TCP"
-          sourcePort: "443"
-
-    - name: Delete path trace by id
-      cisco.dnac.path_trace_workflow_manager:
-        dnac_host: "{{ dnac_host }}"
-        dnac_port: "{{ dnac_port }}"
-        dnac_username: "{{ dnac_username }}"
-        dnac_password: "{{ dnac_password }}"
-        dnac_verify: "{{ dnac_verify }}"
-        dnac_debug: "{{ dnac_debug }}"
-        dnac_version: "{{ dnac_version }}"
-        dnac_log_level: DEBUG
-        dnac_log: true
-        state: deleted
-        config_verify: true
-        config: 
-        - assurance_pathtrace:
-        - sourceIP: "204.1.2.4" #required field
-          destIP: "204.192.6.200" #required field
-     """
+    """
 
 RETURN = r"""
-
-#Case 1: Successful creation of issue
-Response: create
-{
-    "response": {
-        "id": "string",
-        "name": "string",
-        "description": "string",
-        "profileId": "string",
-        "triggerId": "string",
-        "rules": [
-            {
-                "type": "string",
-                "severity": "integer",
-                "facility": "string",
-                "mnemonic": "string",
-                "pattern": "string",
-                "occurrences": "integer",
-                "durationInMinutes": "integer"
-            }
-        ],
-        "isEnabled": "boolean",
-        "priority": "string",
-        "isDeletable": "boolean",
-        "isNotificationEnabled": "boolean",
-        "createdTime": "integer",
-        "lastUpdatedTime": "integer"
-    }
-}
- 
-#Case 2: Successful updation of issue 
-Response: update
-{
-    "response": {
-        "id": "string",
-        "name": "string",
-        "description": "string",
-        "profileId": "string",
-        "triggerId": "string",
-        "rules": [
-            {
-                "type": "string",
-                "severity": "integer",
-                "facility": "string",
-                "mnemonic": "string",
-                "pattern": "string",
-                "occurrences": "integer",
-                "durationInMinutes": "integer"
-            }
-        ],
-        "isEnabled": "boolean",
-        "priority": "string",
-        "isDeletable": "boolean",
-        "isNotificationEnabled": "boolean",
-        "createdTime": "integer",
-        "lastUpdatedTime": "integer"
-    }
-}
-
-#Case 3: Successful deletion of issue
-Response: Delete
-" "
-
-#Case 4: Successful updation of healthcare
-Response: Update
-{
-    "response": {
-        "id": "string",
-        "name": "string",
-        "displayName": "string",
-        "deviceFamily": "string",
-        "description": "string",
-        "includeForOverallHealth": "boolean",
-        "definitionStatus": "string",
-        "thresholdValue": "number",
-        "synchronizeToIssueThreshold": "boolean",
-        "lastModified": "string"
-    },
-    "version": "string"
-}
-
-#Case 5: Successful creation of trace path
-Response: Create
-{
-    "response": {
-        "flowAnalysisId": "string",
-        "taskId": "string",
-        "url": "string"
-    },
-    "version": "string"
-}
-
-#Case 6: Successful deletion of trace path
-Response: Delete
-{
-    "response": {
-        "taskId": "any",
-        "url": "string"
-    },
-    "version": "string"
-}
-
-#Case 7: Successful deletion of trace path
-Response: Delete
-{
-    "response": {
-        "taskId": "any",
-        "url": "string"
-    },
-    "version": "string"
-}
-
-#Case 8: Successful creation of Icap settings
-Response: Create
-{
-     "response": { 
-         "taskId": "string",
-          "url": "string"
-},
-"version": "string"
-}
-
-#Case 9: Successful deletion of Icap settings
-Response: delete
-{
-      "response": { 
+#Case 1: Successful creation/deletion of Icap settings
+response_1:
+  description: A dictionary or list with the response returned by the Cisco Catalyst Center Python SDK
+  returned: always
+  type: dict
+  sample: >
+    {
+      "response": {
           "taskId": "string",
            "url": "string"
-},
-"version": "string"
-}
-
-#Case 10: Successfully Resolved issue
-Response: Update
-{
-    "response": {
-        "successfulIssueIds": [
-            "string"
-        ],
-        "failureIssueIds": [
-            "string"
-        ]
-    },
-    "version": "string"}
-
-#Case 11: Successfully ignored issue
-Response: Update
-{
-    "response": {
-        "successfulIssueIds": [
-            "string"
-        ],
-        "failureIssueIds": [
-            "string"
-        ]
     },
     "version": "string"
-}
-
-#Case 12: Successfully executed commands of issue
-Response: Update
-[
-    {
-        "actionInfo": "string",
-        "stepsCount": "integer",
-        "entityId": "string",
-        "hostname": "string",
-        "stepsDescription": "string",
-        "command": "string",
-        "commandOutput": {}
     }
-]
+
 """
 
-import copy
-import re
-import time
+
 from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.cisco.dnac.plugins.module_utils.dnac import (
     DnacBase,
     validate_list_of_dicts,
-    get_dict_result,
-    dnac_compare_equality,
 )
 
 
-class Healthscore(DnacBase):
-    """Class containing member attributes for Assurance setting workflow manager module"""
+class Icap(DnacBase):
+    """Class containing member attributes for icap setting workflow manager module"""
 
     def __init__(self, module):
         super().__init__(module)
         self.supported_states = ["merged", "deleted"]
         self.result["response"] = [
-            {"assurance_healthscore_settings": {"response": {}, "msg": {}}},
+            {"assurance_icap_settings": {"response": {}, "msg": {}}},
         ]
         self.create_issue, self.update_issue, self.no_update_issue = [], [], []
 
@@ -705,17 +190,20 @@ class Healthscore(DnacBase):
                 - self.status: The status of the validation ('success' or 'failed').
                 - self.validated_config: If successful, a validated version of the 'config' parameter.
         """
-
-        # Specification for validation
         temp_spec = {
-            'assurance_healthscore': {
+            'assurance_icap_settings': {
                 'type': 'list',
                 'elements': 'dict',
-                'name': {'type': 'str', 'required': True},
-                'device_family': {'type': 'str', 'required': True},
-                'include_for_overall_health': {'type': 'bool', 'required': True},
-                'threshold_value': {'type': 'int', 'required': False},
-                'synchronize_to_issue_threshold': {'type': 'bool', 'required': False}
+                'capture_type': {'type': 'str', 'required': True},
+                'duration_in_mins': {'type': int, 'required': True},
+                'client_mac': {'type': 'str', 'required': True},
+                'wlc_id': {'type': 'str', 'required': False},
+                'ap_id': {'type': 'str', 'required': False},
+                'slot': {'type': list, 'required': False},
+                'ota_band': {'type': 'str', 'required': False},
+                'ota_channel': {'type': int, 'required': True},
+                'ota_channel_width': {'type': int, 'required': True},
+
             }
         }
 
@@ -724,7 +212,6 @@ class Healthscore(DnacBase):
             self.set_operation_result("failed", False, self.msg, "ERROR")
             return self
 
-        # Validate configuration against the specification
         valid_temp, invalid_params = validate_list_of_dicts(self.config, temp_spec)
 
         if invalid_params:
@@ -740,7 +227,7 @@ class Healthscore(DnacBase):
 
         return self
 
-    def healthscore_obj_params(self, get_object):
+    def icap_obj_params(self, get_object):
         """
         Get the required comparison obj_params value
 
@@ -752,9 +239,9 @@ class Healthscore(DnacBase):
         """
 
         try:
-            if get_object == "assurance_healthscore_settings":
+            if get_object == "assurance_icap_settings":
                 obj_params = [
-                    ("name", "name"),
+                    ("capture_type", "capture_type"),
                     ("device_family", "device_family"),
                     ("include_for_overall_health", "include_for_overall_health"),
                     ("threshold_value", "threshold_value"),
@@ -770,7 +257,7 @@ class Healthscore(DnacBase):
 
     def get_want(self, config):
         """
-        Retrieve and store assurance healthscore details from playbook configuration.
+        Retrieve and store assurance icap details from playbook configuration.
         Parameters:
             self (object): An instance of a class used for interacting with Cisco Catalyst Center.
             config (dict): The configuration dictionary containing image import and other details.
@@ -782,367 +269,479 @@ class Healthscore(DnacBase):
         """
 
         want = {}
-        want["assurance_healthscore"] = config.get("assurance_healthscore")
-        if "kpi_name" in want:
-            want["name"] = want.pop("kpi_name")
+        want["assurance_icap_settings"] = config.get("assurance_icap_settings")
         self.want = want
         self.log("Desired State (want): {0}".format(str(self.want)), "INFO")
 
         return self
 
-    # def get_have(self, config):
-    #     """
-    #     Get the current Assurance healthscore details from Cisco Catalyst Center
-
-    #     Parameters:
-    #         config (dict) - Playbook details containing Global Pool,
-    #         Reserved Pool, and Network Management configuration.
-
-    #     Returns:
-    #         self - The current object with updated Global Pool,
-    #         Reserved Pool, and Network information.
-    #     """
-    #     self.log(config)
-    #     assurance_healthscore_details = config.get("assurance_healthscore")
-
-    #     if assurance_healthscore_details is not None:
-    #         self.get_have_assurance_healthscore(assurance_healthscore_details).check_return_status()
-
-    #     # self.log("Current State (have): {0}".format(self.have), "INFO")
-    #     self.msg = "Successfully retrieved the details from the system"
-    #     self.status = "success"
-    #     return self
-
-    # def get_have(self, config):
-    #     """
-    #     Get the current assurance healthscore and associated information from the Cisco Catalyst Center 
-    #     based on the provided playbook details.
-    #     """
-    #     assurance_healthscore_details = config.get("assurance_healthscore")
-    #     self.log(assurance_healthscore_details)
-    #     # assurance_healthscore_details = assurance_healthscore_details.get("assurance_healthscore")
-    #     have = []
-    #     healthscore_index = 0
-
-    #     for healthscore_details in assurance_healthscore_details:
-    #         device_family = healthscore_details.get("device_family")
-    #         if not device_family:
-    #             self.msg = "Missing required parameter 'device_family' in assurance_healthscore settings"
-    #             self.status = "failed"
-    #             return self
-
-    #         kpi_details = self.get_kpi_details(device_family, healthscore_details)
-    #         self.log(kpi_details)
-    #         if not kpi_details:
-    #             self.msg = "No KPI details found for device family '{0}'".format(device_family)
-    #             self.status = "failed"
-    #             return self
-            
-    #         # include_for_overall_health = healthscore_details.get("include_for_overall_health")
-    #         # threshold_value = healthscore_details.get("threshold_value")
-    #         # synchronize_to_issue_threshold = healthscore_details.get("synchronize_to_issue_threshold")
-
-    #         # if include_for_overall_health is None:
-    #         #     self.msg = "Missing required parameters for kpi_name '{0}' in assurance_healthscore settings".format(kpi_name)
-    #         #     self.status = "failed"
-    #         #     return self
-
-    #         # healthscore_info = {
-    #         #     "kpi_name": kpi_name,
-    #         #     "device_family": device_family,
-    #         #     "threshold_value": threshold_value,
-    #         #     "include_for_overall_health": include_for_overall_health,
-    #         #     "synchronize_to_issue_threshold": synchronize_to_issue_threshold,
-    #         # }
-    #         have.append(kpi_details)
-    #         healthscore_index += 1
-    #     # self.have.update({"assuranceHealthscore": healthscore_list})
-    #     # Mapping camelCase keys to snake_case replacements with updated values
-    #         key_replacements = {
-    #             'deviceFamily': ('device_family', 'ROUTER'),
-    #             'includeForOverallHealth': ('include_for_overall_health', True),
-    #             'thresholdValue': ('threshold_value', 90),
-    #             'synchronizeToIssueThreshold': ('synchronize_to_issue_threshold', False)
-    #         }
-
-    #         # Replace keys and update values
-    #         for old_key, (new_key, new_value) in key_replacements.items():
-    #             if old_key in have:
-    #                 # Remove old key, add new key with the updated value
-    #                 have[new_key] = new_value
-    #                 del have[old_key]
-    #                 self.have = have
-    #     self.log("Current State (have): {0}".format(self.have), "INFO")
-    #     self.msg = "Successfully retrieved the details from the system"
-    #     self.status = "success"
-    #     return self
-
-    #     # self.msg = "Successfully fetched Assurance healthscore from the Cisco Catalyst Center."
-    #     # self.status = "success"
-    #     # return self
-
     def get_have(self, config):
         """
-        Get the current assurance healthscore and associated information from the Cisco Catalyst Center 
+        Get the current icap associated information from the Cisco Catalyst Center
         based on the provided playbook details.
         """
-        assurance_healthscore_details = config.get("assurance_healthscore")
-        self.log(assurance_healthscore_details)
-
-        if not assurance_healthscore_details:
-            self.msg = "No assurance_healthscore details provided in the configuration."
-            self.status = "failed"
-            return self
-
-        have = []
-
-        for healthscore_details in assurance_healthscore_details:
-            if "kpi_name" in healthscore_details:
-                healthscore_details["name"] = healthscore_details.pop("kpi_name")
-            device_family = healthscore_details.get("device_family")
-            if not device_family:
-                self.msg = "Missing required parameter 'device_family' in assurance_healthscore settings."
-                self.status = "failed"
-                return self
-            self.log(assurance_healthscore_details)
-            kpi_details = self.get_kpi_details(device_family, healthscore_details)
-            self.log(kpi_details)
-
-            if not kpi_details:
-                self.msg = "No KPI details found for device family '{0}'".format(device_family)
-                self.status = "failed"
-                return self
-
-            # Append the KPI details to `have` for further processing
-            have.append(kpi_details)
-
-        # Replace camelCase keys with snake_case in all entries of the `have` list
-        key_replacements = {
-            'deviceFamily': 'device_family',
-            'includeForOverallHealth': 'include_for_overall_health',
-            'thresholdValue': 'threshold_value',
-            'synchronizeToIssueThreshold': 'synchronize_to_issue_threshold'
-        }
-
-        for item in have:
-            for old_key, new_key in key_replacements.items():
-                if old_key in item:
-                    item[new_key] = item.pop(old_key)
-
-        # Save the final state in `self.have`
-        self.have = have
-
-        self.log("Current State (have): {0}".format(self.have), "INFO")
-        self.msg = "Successfully retrieved the details from the system."
-        self.status = "success"
-        return self
-
-    def get_kpi_details(self, device_family, healthscore_details):
-        """
-        Retrieve the KPI name based on the device family by calling the 'Get all health score definitions for given filters' API.
-        """
-        self.log("Retrieving KPI for device family '{0}'".format(device_family))
-
-        param = {
-            "deviceType": device_family,
-            "id": healthscore_details.get("id"),
-    }
-
-        try:
-            response = self.dnac._exec(
-                family="devices",
-                function="get_all_health_score_definitions_for_given_filters",
-                params=param
-            )
-        except Exception as msg:
-            self.msg = "Exception occurred while getting KPI details: {0}".format(msg)
-            self.log(self.msg, "ERROR")
-            self.status = "failed"
-            return None
-
-        if not isinstance(response, dict):
-            self.msg = "Failed to retrieve KPI details - Response is not a dictionary"
-            self.log(self.msg, "CRITICAL")
-            self.status = "failed"
-            return None
-
-        kpi_details = response.get("response")
-        self.log(kpi_details)
-        if not kpi_details:
-            self.msg = "No KPI details found for device family '{0}'".format(device_family)
-            self.log(self.msg, "ERROR")
-            self.status = "failed"
-            return None
-        self.log(healthscore_details)
-
-        for kpi in kpi_details:
-            self.log("KPI_check")
-            self.log(kpi)
-            self.log(device_family)
-            self.log( healthscore_details.get("name"))
-
-
-            if kpi.get("deviceFamily") == device_family and kpi.get("name") == healthscore_details.get("name"):
-                self.log("KPI details for device family '{0}' and KPI '{1}': {2}".format(device_family, healthscore_details.get("name"), kpi), "INFO")
-                return kpi
-
-        self.msg = "No KPI found for device family '{0}' and KPI name '{1}'".format(device_family, kpi_details)
-        self.log(self.msg, "ERROR")
-        self.status = "failed"
-        return None
+        assurance_icap_settings = config.get("assurance_icap_settings")
+        self.log(assurance_icap_settings)
+        if assurance_icap_settings:
+            self.get_have_icap(assurance_icap_settings)
 
     def get_diff_merged(self, config):
         """
-        Update Assurance healthscore configurations in Cisco Catalyst Center based on the playbook details
+        Create Assurance ICAP configurations in Cisco Catalyst Center based on the playbook details
 
         Parameters:
             config (list of dict) - Playbook details containing
-            Assurance healthscore information.
+            Assurance icap information.
 
         Returns:
-            self - The current object with Assurance Issue information.
+            self - The current object with Assurance icap information.
         """
-        assurance_healthscore_details = config.get("assurance_healthscore")
+        assurance_icap_settings = config.get("assurance_icap_settings")
 
-        if assurance_healthscore_details is not None:
-            self.update_healthscore_settings(assurance_healthscore_details).check_return_status()   
-
+        if assurance_icap_settings is not None:
+            self.create_icap(assurance_icap_settings).check_return_status()
+            # self.generates_the_device_clis(assurance_icap_settings)
         return self
 
-    def update_healthscore_settings(self, assurance_healthscore_details):
+    def generates_the_device_clis(self, assurance_icap_details, preview_activity_id):
+        """
+        Generate device CLI configurations for ICAP intent in Cisco Catalyst Center.
 
-        updated_healthscore_settings = []
-        result_healthscore_settings = self.result.get("response")[0].get("assurance_healthscore_settings")
+        This method processes ICAP details to create device CLI configurations, monitor the task,
+        and handle success or failure. It cleans up if the task fails.
 
-        for healthscore_setting in assurance_healthscore_details:
-            name = healthscore_setting.get("name")
-            if name is None:
-                self.msg = "Missing required parameter 'name' in assurance_healthscore_details"
+        Parameters:
+            assurance_icap_details (dict): ICAP details including WLC ID, capture type, and description.
+            preview_activity_id (str): ID of the preview activity associated with the ICAP task.
+
+        Returns:
+            self: The current object with the operation result and status message.
+
+        Raises:
+            Exception: If an error occurs during the CLI generation or task management.
+        """
+        network_device_id = assurance_icap_details.get("wlc_id")
+        for icap in assurance_icap_details:
+            capture_type = icap.get("capture_type")
+            preview_description = icap.get("preview_description")
+            if capture_type is None:
+                self.msg = "Missing required parameter 'capture_type' in assurance_icap_settings"
                 self.status = "failed"
                 return self
 
-            healthscore_obj_params = self.healthscore_obj_params("assurance_healthscore_settings")
-            for item in self.have:
-                self.log(item)
-                self.log(healthscore_setting)
-                if not self.requires_update(item, healthscore_setting, healthscore_obj_params):
-                    self.log(
-                        "Healthscore setting '{0}' doesn't require an update".format(name), "INFO")
-                    result_healthscore_settings.get("msg").update(
-                        {name: "Healthscore setting doesn't require an update"})
-                elif healthscore_setting not in updated_healthscore_settings:
-                        updated_healthscore_settings.append(healthscore_setting)
+            icap_params = {
+                'previewActivityId': preview_activity_id,
+                'networkDeviceId': network_device_id,
+            }
 
-            if updated_healthscore_settings:
-                healthscore_params = {
-                    "id": item.get("id"),
-                    "payload": {
-                        "includeForOverallHealth": healthscore_setting.get("include_for_overall_health"),
-                        "thresholdValue": healthscore_setting.get("threshold_value"),
-                        "synchronizeToIssueThreshold": healthscore_setting.get("synchronize_to_issue_threshold"),
-                    }
-                }
+            try:
+                task_name = "generates_the_devices_clis_of_the_i_cap_configuration_intent_v1"
+                payload = {"payload": icap_params}
+                task_id = self.get_taskid_post_api_call("sensors", task_name, payload)
 
-                self.log(f"Preparing update for healthscore settings '{name}' with params: {healthscore_params}", "DEBUG")
-
-                try:
-                    self.log("hi")
-                    response = self.dnac._exec(
-                        family="devices",
-                        function="update_health_score_definition_for_the_given_id",
-                        op_modifies=True,
-                        params=healthscore_params,
-                    )
-                    self.log(response)
-                    if response.get("response"):
-                        response_data = response.get("response")
-                        self.log(f"Successfully updated healthscore settings '{name}' with details: {response_data}", "INFO")
-                        updated_healthscore_settings.append(response_data)
-                    else:
-                        self.log(f"Failed to update system issue '{name}'", "ERROR")
-
-                except Exception as e:
-                    self.msg = "Exception occurred while updating the healthscore settings '{0}':".format(str(name))
-                    self.log(self.msg, "ERROR")
-                    self.status = "failed"
+                if not task_id:
+                    self.msg = "Unable to retrieve the task_id for the task '{0}'.".format(task_name)
+                    self.set_operation_result("failed", False, self.msg, "ERROR")
                     return self
-                result_healthscore_settings.get("response").update(
-                            {"system issue": updated_healthscore_settings})
-                result_healthscore_settings.get("msg").update(
-                {response_data.get("name"): "System issue Updated Successfully"})
-                self.msg = "Successfully updated system-defined issue details."
-                self.result['changed'] = True
 
-        # Update the `have` object with the updated system issue details
-        # self.have.update({"assurance_system_issue_settings": updated_healthscore_settings})
-        
-        self.status = "success"
+                success_msg = "Generated the devices cli's of icap config '{0}'  successfully in the Cisco Catalyst Center".format(preview_description)
+                failure_msg = "Failed to generate the devices cli's of icap config '{0}' in the Cisco Catalyst Center".format(preview_description)
+                self.get_task_status_from_task_by_id(
+                    task_id=task_id,
+                    task_name=task_name,
+                    failure_msg=failure_msg,
+                    success_msg=success_msg
+                )
+                if self.status == "failed":
+                    self.log("Task failed. Calling delete function to clean up.", "ERROR")
+                    self.delete_icap_config(task_id, capture_type)
+                    return self
+
+            except Exception as e:
+                self.msg = "An exception occurred while creating ICAP config in Cisco Catalyst Center: {0}".format(str(e))
+                self.log(self.msg, "ERROR")
+                self.set_operation_result("failed", False, self.msg, "ERROR")
+                return self
+
+        self.msg = "Successfully set ICAP config."
+        self.set_operation_result("success", True, self.msg, "INFO")
+
+    def retrieves_the_device_clis(self, assurance_icap_details, preview_activity_id):
+        """
+        Retrieve device CLI configurations for an ICAP intent from Cisco DNAC.
+
+        Parameters:
+            assurance_icap_details (dict): ICAP details including WLC ID.
+            preview_activity_id (str): Preview activity ID.
+
+        Returns:
+            list or self: CLI configurations if successful, or self with error status.
+
+        Raises:
+            Exception: If an error occurs during retrieval.
+        """
+        network_device_id = assurance_icap_details.get("wlc_id")
+        try:
+            response = self.dnac._exec(
+                family="sensors",
+                function="retrieves_the_devices_clis_of_the_i_capintent_v1",
+                op_modifies=False,
+                params={'previewActivityId': preview_activity_id, 'networkDeviceId': network_device_id}
+            )
+            response = response.get("response")
+            if response:
+                return response
+        except Exception as msg:
+            self.msg = (
+                "Exception occurred while performing icap: {msg}"
+                .format(msg=msg)
+            )
+            self.log(str(msg), "ERROR")
+            self.status = "failed"
+            return self
+
+    def deploy_icap_config(self, assurance_icap_details, preview_activity_id):
+        """
+        Deploy an ICAP configuration intent in Cisco Catalyst Center.
+
+        This method deploys the specified ICAP configuration based on the provided details and
+        preview activity ID. It handles task creation, monitors task status, and logs success or failure.
+
+        Parameters:
+            assurance_icap_details (dict): ICAP details including preview description.
+            preview_activity_id (str): Preview activity ID.
+
+        Returns:
+            self: The current object with operation result and status message.
+        """
+        try:
+            preview_description = assurance_icap_details.get("preview_description")
+            self.log("Requested payload for deploying {0}".format(preview_description), "DEBUG")
+            payload = {'previewActivityId': preview_activity_id}
+            task_name = "deploys_the_given_i_cap_configuration_intent_without_preview_and_approve_v1"
+            task_id = self.get_taskid_post_api_call("sensors", task_name, payload)
+
+            if not task_id:
+                self.msg = "Unable to retrieve the task_id for the task '{0}'.".format(task_name)
+                self.set_operation_result("failed", False, self.msg, "ERROR")
+                return self
+
+            success_msg = "deployed icap config '{0}' successfully in the Cisco Catalyst Center".format(preview_description)
+            self.log(success_msg, "DEBUG")
+            self.get_task_status_from_tasks_by_id(task_id, task_name, success_msg)
+
+        except Exception as e:
+            self.msg = "An exception occured while deploying icap config '{0}' in Cisco Catalyst Center: {1}".format(preview_description, str(e))
+            self.set_operation_result("failed", False, self.msg, "ERROR")
+
         return self
+
+    def icap_configuration_status_per_network_device(self, preview_activity_id):
+        """
+        Retrieve ICAP configuration status for network devices from Cisco DNAC.
+
+        This method fetches the ICAP configuration status for devices based on the provided preview
+        activity ID and returns the status details.
+
+        Parameters:
+            preview_activity_id (str): The preview activity ID to associate with the task.
+
+        Returns:
+            list or self: List of status details if successful, or self with error status if an exception occurs.
+        """
+        try:
+            response = self.dnac._exec(
+                family="sensors",
+                function="get_i_cap_configuration_status_per_network_device_v1",
+                op_modifies=False,
+                params={'previewActivityId': preview_activity_id}
+            )
+            response = response.get("response")
+            if response:
+                return response
+        except Exception as msg:
+            self.msg = (
+                "Exception occurred while performing icap operation: {msg}"
+                .format(msg=msg)
+            )
+            self.log(str(msg), "ERROR")
+            self.status = "failed"
+            return self
+
+    def create_icap(self, assurance_icap_details):
+        """
+        Creates an ICAP configuration in the Cisco Catalyst Center, monitors its task status, and takes appropriate actions
+        based on the result of the task. If the task fails, a cleanup function is called to delete the configuration.
+        If the task succeeds, the next step in the workflow is executed.
+
+        Args:
+            assurance_icap_details (list): A list of dictionaries containing the details for ICAP configuration. Each
+                dictionary must include the following keys:
+                - "capture_type" (str): The type of ICAP capture (e.g., "onboarding").
+
+        Workflow:
+            The general guideline for the preview-approve workflow is as follows:
+
+            Step 1: Use the POST API to initiate the intent request. The intent is not deployed to the device yet.
+            The TaskResponse body contains the taskId (UUID), referred to as `previewActivityId` in all subsequent APIs.
+            At any step, the DELETE `/dna/intent/api/v1/icapSettings/configurationModels/{previewActivityId}` API
+            can be used to discard or cancel the intent. A discarded intent completes the preview-approve workflow,
+            meaning the ICAP intent is not applied to the device. The API response body includes a URL to GET the task status,
+            which must be checked for successful completion before proceeding to the next step. If the task fails,
+            the preview-approve workflow process is completed.
+
+            Step 2: Use GET `/dna/intent/api/v1/icapSettings/configurationModels/{previewActivityId}/networkDeviceStatusDetails`
+            to check for potential conflicts.
+
+            Step 3: Use POST `/dna/intent/api/v1/icapSettings/{previewActivityId}/networkDevices/{networkDeviceId}/config`
+            to generate device CLIs for the preview-approve process. The response body contains a task ID and a URL
+            to check the task status. This task must successfully complete before using the GET API to view CLIs.
+            If the task fails, the preview-approve workflow ends. Multiple POST requests, each with a different
+            `networkDeviceId` (corresponding to the `wlcId` value in the initial POST API), can be used to generate
+            CLIs for multiple devices. Each POST request's task must be checked before proceeding.
+            If any task fails, the DELETE `/dna/intent/api/v1/icapSettings/configurationModels/{previewActivityId}`
+            should be used to discard the activity.
+
+            Step 4: Use GET `/dna/intent/api/v1/icapSettings/configurationModels/{previewActivityId}/networkDevices/{networkDeviceId}/config`
+            to view the CLIs that will be applied to the device.
+
+            Step 5: Use POST `/dna/intent/api/v1/icapSettings/configurationModels/{previewActivityId}/deploy`
+            to push the intent to the device. This step completes the preview-approve workflow.
+            This POST returns a task, which should be checked for its status.
+
+            NOTE: ONBOARDING, FULL, OTA, and SPECTRUM have durations. A "disable" task is automatically scheduled to
+            remove the ICAP intent when the duration expires. Use GET `/dna/intent/api/v1/icap` to retrieve the "disable"
+            task ID. This task ID can be used to preview the CLIs of the "disable" task. However, steps in the preview-approve
+            workflow are not available after the duration expires.
+
+        Returns:
+            self: Returns the instance of the class with updated `status` and `msg` attributes.
+
+        Raises:
+            Exception: If an unexpected error occurs during the process, it is logged, and the operation is marked as failed.
+
+        Notes:
+            - The method uses `get_task_status_from_task_by_id` to validate the progress and result of the task.
+            - The `delete_icap_config` and `next_function` methods should be implemented to handle cleanup and further actions, respectively.
+            - Logs are generated at each step to provide insights into the workflow.
+
+        Example:
+            assurance_icap_details = [
+                {
+                    "capture_type": "onboarding"
+                }
+            ]
+            instance.create_icap(assurance_icap_details)
+        """
+        # create_icap_settings = []
+        result_icap_settings = self.result.get("response")[0].get("assurance_icap_settings")
+
+        for icap in assurance_icap_details:
+            capture_type = icap.get("capture_type")
+            if capture_type is None:
+                self.msg = "Missing required parameter 'capture_type' in assurance_icap_settings"
+                # self.status = "failed"
+                self.set_operation_result("failed", False, self.msg, "ERROR")
+                return self
+
+            icap_params = {
+                "previewDescription": "test",
+                "captureType": "onboarding",
+                "duration_in_mins": 30,
+                "client_mac": "client_mac_id",
+                "wlc_id": "wlc_id",
+                "ap_id": "ap_id",
+                "slot": [1, 2],
+                "ota_band": "5GHz",
+                "ota_channel": 36,
+                "ota_channel_width": 20
+            }
+
+            try:
+                task_name = "creates_an_i_cap_configuration_intent_for_preview_approve_v1"
+                payload = {"payload": icap_params}
+                task_id = self.get_taskid_post_api_call("sensors", task_name, payload)
+
+                if not task_id:
+                    self.msg = "Unable to retrieve the task_id for the task '{0}'.".format(task_name)
+                    self.set_operation_result("failed", False, self.msg, "ERROR")
+                    return self
+
+                success_msg = "ICAP Configuration '{0}' set successfully in the Cisco Catalyst Center".format(capture_type)
+                failure_msg = "Failed to set ICAP Configuration '{0}' in the Cisco Catalyst Center".format(capture_type)
+
+                self.get_task_status_from_task_by_id(
+                    task_id=task_id,
+                    task_name=task_name,
+                    failure_msg=failure_msg,
+                    success_msg=success_msg
+                )
+                preview_activity_id = self.get_preview_id(task_id)
+                if self.status == "failed":
+                    self.log("Task failed. Calling delete function to clean up.", "ERROR")
+                    self.delete_icap_config(preview_activity_id, capture_type)
+                    return self
+                else:
+                    self.log("Task succeeded. Proceeding to the next function.", "INFO")
+                    result_icap_settings.get("response").update(
+                        {"created icap configuration": icap})
+                    result_icap_settings.get("msg").update(
+                        {icap.get("preview_description"): "Icap configuration Created Successfully"})
+                    self.set_operation_result("success", True, self.msg, "INFO")
+                    self.icap_configuration_status_per_network_device(self, preview_activity_id)
+                    if icap.get("generates_the_device_cli"):
+                        self.generates_the_device_clis(icap, preview_activity_id)
+                        self.retrieves_the_device_clis(icap, preview_activity_id)
+                    if icap.get("deploy"):
+                        self.deploy_icap_config(icap, preview_activity_id)
+            except Exception as e:
+                self.msg = "An exception occurred while creating ICAP config in Cisco Catalyst Center: {0}".format(str(e))
+                self.log(self.msg, "ERROR")
+                self.set_operation_result("failed", False, self.msg, "ERROR")
+                return self
+
+        self.msg = "Successfully set ICAP config."
+        self.set_operation_result("success", True, self.msg, "INFO")
+        return self
+
+    def get_preview_id(self, task_id):
+        """
+        Retrieves the previewActivityId associated with a given task ID by monitoring the task status
+        through the Cisco Catalyst Center API.
+
+        Args:
+            task_id (str): The unique identifier of the task for which the previewActivityId is to be retrieved.
+
+        Returns:
+            str: The previewActivityId if successfully retrieved from the task response.
+            None: If an exception occurs or the previewActivityId cannot be retrieved.
+        """
+        try:
+            response = self.dnac._exec(
+                family="task",
+                function="get_tasks_by_id",
+                params={"id": task_id}
+            )
+            response = response.get("response")
+            preview_activity_id = response.get("previewActivityId")
+            return preview_activity_id
+        except Exception as e:
+            self.msg = "An exception occurred while getting preview Activity ID from task ID: {0}".format(str(e))
+            self.log(self.msg, "ERROR")
+            self.set_operation_result("failed", False, self.msg, "ERROR")
+            return None
+
+    def delete_icap_config(self, preview_activity_id, capture_type):
+        """
+        Discards an ICAP configuration intent in Cisco Catalyst Center using the task ID.
+
+        Args:
+            task_id (str): The unique identifier of the task associated with the ICAP configuration intent.
+            capture_type (str): The type of ICAP configuration being discarded (e.g., onboarding, spectrum, etc.).
+
+        Returns:
+            self (object): Returns the current instance of the class with updated status and message attributes.
+
+        Description:
+            This method retrieves the `previewActivityId` using the provided task ID, then initiates the discard operation
+            for the ICAP configuration intent in Cisco Catalyst Center. It monitors the task's status and updates the
+            instance attributes with the operation's result.
+
+        Workflow:
+            1. Retrieve `previewActivityId` using the provided task ID by calling `get_preview_id`.
+            2. Send a POST request to the appropriate API endpoint to discard the ICAP configuration intent.
+            3. Monitor the task status for success or failure using `get_task_status_from_task_by_id`.
+            4. On success, update the instance's result with details of the discarded ICAP configuration.
+            5. On failure or exception, log the error, update the operation result, and return the instance.
+
+        Example:
+            instance = delete_icap_config(task_id="12345", capture_type="onboarding")
+            if instance.status == "success":
+                print("ICAP configuration discarded successfully.")
+            else:
+                print("Failed to discard ICAP configuration.")
+        """
+        result_icap_settings = self.result.get("response")[0].get("assurance_icap_settings")
+        # Get previewActivityId for deletion by task ID
+        # preview_activity_id = self.get_preview_id(task_id)
+        try:
+            task_name = "discards_the_i_cap_configuration_intent_by_activity_id_v1"
+            payload = {"payload": preview_activity_id}
+            task_id = self.get_taskid_post_api_call("sensors", task_name, payload)
+
+            if not task_id:
+                self.msg = "Unable to retrieve the task_id for the task '{0}'.".format(task_name)
+                self.set_operation_result("failed", False, self.msg, "ERROR")
+                return self
+
+            success_msg = "ICAP Configuration '{0}' discarded successfully in the Cisco Catalyst Center".format(capture_type)
+            failure_msg = "Failed to discard ICAP Configuration '{0}' in the Cisco Catalyst Center".format(capture_type)
+
+            self.get_task_status_from_task_by_id(
+                task_id=task_id,
+                task_name=task_name,
+                failure_msg=failure_msg,
+                success_msg=success_msg
+            )
+            result_icap_settings.get("response").update(
+                {"discarded icap configuration": capture_type})
+            result_icap_settings.get("msg").update(
+                {capture_type: "ICAP configuration discarded successfully."})
+            self.msg = "Successfully discarded ICAP config."
+            self.set_operation_result("success", False, self.msg, "INFO")
+            return self
+
+        except Exception as e:
+            self.msg = "An exception occurred while discarding ICAP config in Cisco Catalyst Center: {0}".format(str(e))
+            self.log(self.msg, "ERROR")
+            self.set_operation_result("failed", False, self.msg, "ERROR")
+            return self
 
     def verify_diff_merged(self, config):
         """
-        Validating the Cisco Catalyst Center configuration with the playbook details
-        when state is merged (Create/Update).
+    Validating the Cisco Catalyst Center ICAP configuration with the playbook details
+    when state is merged (Create).
 
-        Parameters:
-            config (dict) - Playbook details containing Assurance healthscore setting.
+    Parameters:
+        config (dict) - Playbook details containing ICAP configuration.
 
-        Returns:
-            self - The current object with Assurance healthscore information.
+    Returns:
+        self - The current object with ICAP configuration information.
         """
 
-        self.all_assurance_healthscore_details = {}
+        self.all_assurance_icap_details = {}
         self.get_have(config)
         self.log("Current State (have): {0}".format(self.have), "INFO")
-        self.log("Requested State (want): {0}".format(self.want.get("assurance_healthscore")), "INFO")
-        if config.get("assurance_healthscore") is not None:
-            assurance_healthscore_index = 0
-            self.log("Desired State of assurance healthscore issue settings (want): {0}"
-                     .format(self.want.get("assurance_healthscore")), "DEBUG")
-            self.log("Current State of assurance healthscore issue settings (have): {0}"
+        self.log("Requested State (want): {0}".format(self.want.get("assurance_icap_settings")), "INFO")
+
+        if config.get("assurance_icap_settings") is not None:
+            icap_index = 0
+            self.log("Desired State of ICAP configuration (want): {0}"
+                     .format(self.want.get("assurance_icap_settings")), "DEBUG")
+            self.log("Current State of ICAP configuration (have): {0}"
                      .format(self.have), "DEBUG")
-            for item in self.want.get("assurance_healthscore"):
-                assurance_healthscore_details = self.have[assurance_healthscore_index]
-                self.log(assurance_healthscore_details)
+
+            for item in self.want.get("assurance_icap_settings"):
+                icap_details = self.have[icap_index]
+                self.log(icap_details)
                 self.log(item)
+                icap_obj_params = self.icap_obj_params("assurance_icap_settings")
 
-                # if not assurance_healthscore_details:
-                #     self.msg = "The Assurance healthscore config is not set in cisco catalyst center : {0}".format(
-                #         item)
-                #     self.status = "failed"
-                #     return self
-                healthscore_obj_params = self.healthscore_obj_params("assurance_healthscore_settings")
-
-                if not self.requires_update(assurance_healthscore_details, item, healthscore_obj_params):
-
-                    self.msg = "Assurance healthscore Config is not applied to the Cisco Catalyst Center"
+                if not self.requires_update(icap_details, item, icap_obj_params):
+                    self.msg = "ICAP Config is not applied to the Cisco Catalyst Center"
                     self.status = "failed"
                     return self
 
-                
-                assurance_healthscore_index += 1
+                icap_index += 1
 
-                self.log("Successfully validated Assurance healthscore setting(s).", "INFO")
-                self.result.get("response")[0].get(
-                    "assurance_healthscore_settings").update({"Validation": "Success"})
+            self.log("Successfully validated ICAP configuration(s).", "INFO")
+            self.result.get("response")[0].get(
+                "assurance_icap_settings").update({"Validation": "Success"})
 
-        self.msg = "Successfully validated the Assurance user defined issue."
+        self.msg = "Successfully validated the ICAP configuration."
         self.status = "success"
         return self
 
-    def get_dict_result(data, key, value):
-        """
-    This function extracts the result from the dictionary where key matches the value.
-    Ensure that both deviceFamily and name are matched.
-        """
-        result = None
-        for item in data:
-            if item.get(key) == value:
-            # Make sure the correct name is also matched, not just deviceFamily
-                if item.get("name") == value:
-                    result = item
-                    break
-        return result
 
 def main():
     """main entry point for module execution"""
@@ -1170,9 +769,17 @@ def main():
 
     # Create an AnsibleModule object with argument specifications
     module = AnsibleModule(argument_spec=element_spec,
-                            supports_check_mode=False)
-    ccc_assurance = Healthscore(module)
+                           supports_check_mode=False)
+    ccc_assurance = Icap(module)
     state = ccc_assurance.params.get("state")
+    # ccc_sda_devices = FabricDevices(module)
+    if ccc_assurance.compare_dnac_versions(ccc_assurance.get_ccc_version(), "2.3.7.9") < 0:
+        ccc_assurance.msg = (
+            "The specified version '{0}' does not support the Assurance ICAP settings feature. Supported versions start from '2.3.7.9' onwards."
+            .format(ccc_assurance.get_ccc_version())
+        )
+        ccc_assurance.status = "failed"
+        ccc_assurance.check_return_status()
 
     if state not in ccc_assurance.supported_states:
         ccc_assurance.status = "invalid"
@@ -1185,12 +792,13 @@ def main():
     for config in ccc_assurance.validated_config:
         ccc_assurance.reset_values()
         ccc_assurance.get_want(config).check_return_status()
-        ccc_assurance.get_have(config).check_return_status()
+        # ccc_assurance.get_have(config).check_return_status()
         ccc_assurance.get_diff_state_apply[state](config).check_return_status()
         # if config_verify:
         #     ccc_assurance.verify_diff_state_apply[state](config).check_return_status()
 
         module.exit_json(**ccc_assurance.result)
+
 
 if __name__ == "__main__":
     main()
